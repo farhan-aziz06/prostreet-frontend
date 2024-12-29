@@ -1,22 +1,44 @@
-import React from 'react';
+'use client';
+import React, { useMemo } from 'react';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { FaBasketballBall, FaFutbol, FaTableTennis, FaGolfBall } from 'react-icons/fa';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    ArcElement,
+    Title,
+    Tooltip,
+    Legend
+} from 'chart.js';
+
+// Registering required components
+ChartJS.register(
+    CategoryScale,     // For x-axis
+    LinearScale,       // For y-axis
+    BarElement,        // For bar chart elements
+    ArcElement,        // For doughnut chart elements
+    Title,             // For chart titles
+    Tooltip,           // For tooltips
+    Legend             // For legend
+);
 
 export default function Dashboard() {
     // Dummy data for charts
-    const barData = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    const barData = useMemo(() => ({
+        labels: ['Jan', 'Feb', 'Mar', 'Apr'],
         datasets: [
             {
                 label: 'Registered Users',
-                data: [2000, 4000, 5000, 3000, 6000, 7000, 8000, 9000, 24000, 10000, 11000, 12000],
+                data: [20, 40, 50, 30],
                 backgroundColor: '#FCD34D',
                 borderRadius: 4,
             },
         ],
-    };
+    }), []);
 
-    const doughnutData = {
+    const doughnutData = useMemo(() => ({
         labels: ['Soccer Matches', 'Basketball Matches', 'Tennis Matches', 'Golf'],
         datasets: [
             {
@@ -24,7 +46,7 @@ export default function Dashboard() {
                 backgroundColor: ['#34D399', '#F87171', '#60A5FA', '#A78BFA'],
             },
         ],
-    };
+    }), []);
 
     return (
         <div className="min-h-screen bg-gray-900 text-white p-6">
@@ -104,7 +126,7 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div className="bg-gray-800 p-6 rounded">
                     <h3 className="text-lg font-bold mb-4">Monthly Registered Users</h3>
-                    <Bar data={barData} options={{ maintainAspectRatio: false }} height={200} />
+                    {/* <Bar data={barData} options={{ maintainAspectRatio: false }} height={200} /> */}
                 </div>
                 <div className="bg-gray-800 p-6 rounded">
                     <h3 className="text-lg font-bold mb-4">Monthly Matches</h3>
