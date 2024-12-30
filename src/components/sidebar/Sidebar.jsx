@@ -10,12 +10,12 @@ const Sidebar = () => {
     const [openMenu, setOpenMenu] = useState(null);  // Track the currently open menu
 
     const links = [
-        { href: '/dashboard', label: 'Dashboard', icon: dashboardIcons },
-        { href: '/users', label: 'Users', icon: userIcon },
-        { href: '/matches', label: 'Matches', icon: matchesIcon },
-        { href: '/feedback', label: 'Feedback', icon: feedbackIcon },
-        { href: '/notifications', label: 'Notifications', icon: notification },
-        { href: '/documentations', label: 'Documentation', icon: documentataion },
+        { href: '/admin/dashboard', label: 'Dashboard', icon: dashboardIcons },
+        { href: '/admin/users', label: 'Users', icon: userIcon },
+        { href: '/admin/matches', label: 'Matches', icon: matchesIcon },
+        { href: '/admin/feedback', label: 'Feedback', icon: feedbackIcon },
+        { href: '/admin/notifications', label: 'Notifications', icon: notification },
+        { href: '/admin/documentations', label: 'Documentation', icon: documentataion },
     ];
 
     const toggleMenu = (menu) => {
