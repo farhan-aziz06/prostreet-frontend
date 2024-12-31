@@ -14,8 +14,8 @@ export default {
           buttonColor: "#787F99",
           grayDark: "#313132",
           textColor: "#D7DAE2",
-          cardBg: "#424756"
-          
+          cardBg: "#424756",
+          primaryColor: "#14AE5C",
         },
         background: "var(--background)",
         foreground: "var(--foreground)",
