@@ -49,13 +49,13 @@ export const LoginPage=()=> {
 
                     <a href="#" className="text-lg text-custom-lightGreen mt-1 block text-right">Forgot Password?</a>
 
-                    <div className="flex items-center">
+                    <div className="flex items-center mb-2">
                         <input
                             type="checkbox"
                             id="remember"
                             className="h-5 w-5 rounded appearance-none bg-custom-backgroundColor border border-gray-300 checked:bg-white checked:border-black cursor-pointer checked:before:content-['✔'] checked:before:text-black checked:before:flex checked:before:items-center checked:before:justify-center"
                         />
-                        <label htmlFor="remember" className="ml-2 font-medium text-lg mb-2">Remember me</label>
+                        <label htmlFor="remember" className="ml-2 font-medium text-lg">Remember me</label>
                     </div>
 
 
