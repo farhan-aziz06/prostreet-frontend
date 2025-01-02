@@ -54,7 +54,7 @@ export const LoginPage = () => {
               id="remember"
               className="h-5 w-5 rounded appearance-none bg-custom-backgroundColor border border-gray-300 checked:bg-white checked:border-black cursor-pointer checked:before:content-['✔'] checked:before:text-black checked:before:flex checked:before:items-center checked:before:justify-center"
             />
-            <label htmlFor="remember" className="ml-2 font-medium text-lg">Remember me</label>
+            <label htmlFor="remember" className="ml-2 font-medium text-lg mb-2">Remember me</label>
           </div>
           <Link href={"/admin/dashboard"}>
             <button
