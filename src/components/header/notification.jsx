@@ -1,6 +1,5 @@
-// components/Notifications.js
 'use client';
-
+import Link from "next/link";
 import { progessBar } from "../resources/icons";
 
 export default function Notifications() {
@@ -53,10 +52,13 @@ export default function Notifications() {
                 </div>
             </div>
             <div className="my-6 flex justify-center">
+                <Link href={"/admin/notifications"}>
                     <button className="bg-green-500 text-sm text-white py-3 px-6 rounded-lg hover:bg-green-600">
                         View more
                     </button>
-                </div>
+                </Link>
+
+            </div>
         </div>
     );
 }

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { notificationIcon, settingsIcon } from '../resources/icons';
 import UserAvatar from './useravatar.png';
 import Image from 'next/image';
+import Link from 'next/link';
 import Notifications from './notification'; // Ensure the path is correct
 
 const Header = () => {
@@ -14,7 +15,7 @@ const Header = () => {
     };
 
     return (
-        <header className="flex justify-end items-center gap-10 p-6 text-white relative">
+        <header className="flex justify-end items-center gap-10 p-6 text-white relative bg-[#1A1D26]">
             {/* Notification Button */}
             <div className="relative">
                 <button
@@ -36,22 +37,25 @@ const Header = () => {
 
             {/* Profile Section */}
             <div className="flex items-center border-l border-gray-700 px-10">
-                <button
-                    className="flex items-center space-x-3 focus:outline-none"
-                    aria-label="Profile"
-                >
-                    <Image
-                        src={UserAvatar}
-                        alt="Profile"
-                        width={50}
-                        height={50}
-                        className="rounded-full"
-                    />
-                    <div className="text-left">
-                        <p className="font-medium">Jhon Doe</p>
-                        <p className="text-sm text-gray-400">admin@admin.com</p>
-                    </div>
-                </button>
+                <Link href="/admin/dashboard/personal-information">
+                    <button
+                        className="flex items-center space-x-3 focus:outline-none"
+                        aria-label="Profile"
+                    >
+                        <Image
+                            src={UserAvatar}
+                            alt="Profile"
+                            width={50}
+                            height={50}
+                            className="rounded-full"
+                        />
+                        <div className="text-left">
+                            <p className="font-medium">Jhon Doe</p>
+                            <p className="text-sm text-gray-400">admin@admin.com</p>
+                        </div>
+                    </button>
+                </Link>
+
             </div>
 
             {/* Overlay with Blur Background */}

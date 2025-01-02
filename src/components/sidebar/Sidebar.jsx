@@ -23,7 +23,7 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="fixed md:flex h-screen w-[300px] max-w-[339px] flex-col gap-10 rounded-r-[20px] border-r-2 border-black/20 text-white bg-custom-leafGreen px-3 py-6 hidden ">
+        <div className="fixed md:flex h-screen w-[300px] max-w-[339px] flex-col gap-10 rounded-r-[20px] border-r-2 border-black/20 text-white bg-[#313132] px-3 py-6 hidden ">
             <Image
                 src="/logo.svg"
                 alt="Logo Image here..."

@@ -2,7 +2,7 @@ import { blockIcons, ovalIcon } from '@/components/resources/icons';
 import React from 'react';
 import { FaDotCircle } from 'react-icons/fa';
 
-export default function Notifications() {
+const Notifications=()=>{
   const notifications = [
     {
       agent: 'Agent Rose',
@@ -27,7 +27,7 @@ export default function Notifications() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className="min-h-screen bg-[#1A1D26] text-white p-6">
       {/* Header */}
       <h2 className="text-2xl font-bold mb-6 flex items-center space-x-2">
         <span>{blockIcons}</span>
@@ -59,3 +59,5 @@ export default function Notifications() {
     </div>
   );
 }
+
+export default Notifications
