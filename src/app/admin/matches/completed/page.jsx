@@ -52,27 +52,27 @@ const User = () => {
 
 
     return (
-        <div className="px-16 py-7 min-h-screen">
+        <div className="px-5 md:px-10 py-7 min-h-screen">
             {/* Topbar */}
             <Topbar icon={blockIcons} title="Matches List" />
             <div className="border mt-5 rounded-lg">
                 {/* Search and Filters */}
-                <div className="p-5 flex items-center justify-between">
+                <div className="p-5 md:flex items-center justify-between">
                     <h2 className="text-lg font-medium mb-4 text-white">Information</h2>
                     <div className="flex items-center gap-4">
-                        <div className="flex items-center w-96 border rounded-md bg-gray-800">
+                        <div className="flex items-center md:w-96 border rounded-md bg-gray-800">
                             <input
                                 type="text"
                                 placeholder="Search Ex: (User ID, Name, Email)"
-                                className="w-full px-5 py-2 text-gray-300 text-lg bg-transparent outline-none"
+                                className="hidden md:flex w-full px-5 py-2 text-gray-300 text-lg bg-transparent outline-none"
                             />
-                            <button className="p-4 text-gray-300 bg-green-600 hover:text-white rounded-r-md border-l">
+                            <button className="p-2 md:p-4 text-gray-300 bg-green-600 hover:text-white rounded-r-md border-l">
                                 {searchIcon}
                             </button>
                         </div>
                         <div className="relative">
                             <button
-                                className="flex items-center text-sky-100 gap-2 px-5 py-4 text-sm font-medium bg-transparent border border-green-700 rounded-md"
+                                className="flex items-center text-sky-100 gap-2 px-2 md:px-5 py-2 md:py-4 text-sm font-medium bg-transparent border border-green-700 rounded-md"
                                 onClick={toggleOrganizedDropdown}
                             >
                                 <span className="text-green-500">Completed</span>
@@ -101,7 +101,7 @@ const User = () => {
                                 </div>
                             )}
                         </div>
-                        <button className="flex items-center text-sky-100 gap-2 px-5 py-4 text-sm font-medium bg-transparent border border-green-700 rounded-md">
+                        <button className="flex items-center text-sky-100 gap-2 px-2 md:px-5 py-2 md:py-4 text-sm font-medium bg-transparent border border-green-700 rounded-md">
                             <span className="text-green-500">Sport Type</span>
                             <span>{dropdown}</span>
                         </button>
@@ -128,7 +128,7 @@ const User = () => {
                                     <td className="px-10 py-5 text-center">{user.sl}</td>
                                     <td className="px-10 py-5 text-center">{user.type}</td>
                                     <td className="px-10 py-5 text-center">{user.loc}</td>
-                                    <td className="px-10 py-5 text-center">{user.date}</td>
+                                    <td className="px-10 py-5 text-center text-nowrap">{user.date}</td>
                                     <td className="px-10 py-5 text-center">{user.slot}</td>
                                     <td className="px-10 py-5 text-center">
                                         <span
@@ -142,7 +142,7 @@ const User = () => {
                                             {user.status}
                                         </span>
                                     </td>
-                                    <td className="px-10 py-5 text-center flex gap-2">
+                                    <td className="px-10 py-10 md:py-5 text-center flex gap-2">
                                         <Link href={"/admin/matches/completed/score"}>
                                             <button className="p-1 rounded text-gray-900">{eyeIcon}</button>
                                         </Link>
@@ -170,7 +170,7 @@ const User = () => {
             {/* Edit Match Modal */}
             {showEditModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[600px]">
+                    <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[600px] m-5">
                         <h2 className="text-lg font-semibold text-white mb-4 text-center">
                             Edit Match
                         </h2>
@@ -233,7 +233,7 @@ const User = () => {
             {/* Delete Confirmation Modal */}
             {showDeleteModal && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
-                    <div className="bg-[#222530] p-6 rounded-lg shadow-lg w-[30%] text-center border border-[#4F4E4E]">
+                    <div className="bg-[#222530] p-6 rounded-lg shadow-lg md:w-[30%] m-5 text-center border border-[#4F4E4E]">
                         <h2 className="text-lg font-semibold mb-4">Do you really want to delete this item?</h2>
                         <p className="text-sm font-medium mb-2">User deleted once csn not be restored again. Are you sure you want to delete this?</p>
                         <div className="flex gap-4 justify-center">

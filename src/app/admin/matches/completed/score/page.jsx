@@ -13,17 +13,17 @@ const MatchDetails = () => {
     };
 
     return (
-        <div className="bg-[#181A28] flex items-center justify-center p-6">
-            <div className="w-full bg-[#2C2F48] rounded-lg shadow-lg">
+        <div className="bg-[#1A1D26] flex items-center justify-center p-6">
+            <div className="w-full bg-[#1A1D26] rounded-lg shadow-lg">
                 {/* Match Details Section */}
                 <div className="bg-[#B6F36A] py-6 rounded-t-lg relative">
                     <div className="pb-20">
-                        <h2 className="text-xl font-semibold text-black text-center">Match Details</h2>
-                        <p className="text-sm text-black mt-1 text-center">Here are some details of the match selected</p>
+                        <h2 className="text-xl font-semibold text-black md:text-center px-3">Match Details</h2>
+                        <p className="text-sm text-black mt-1 md:text-center px-3">Here are some details of the match selected</p>
                         <span className="absolute top-6 right-6 text-blue-500 font-semibold cursor-pointer">Game Open</span>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 mt-4 text-black px-10">
+                    <div className="grid md:grid-cols-3 gap-4 mt-4 text-black px-10">
                         <div>
                             <div className="flex items-center gap-2 pb-14">
                                 <span className="text-lg">{calenderIcon}</span>
@@ -75,7 +75,7 @@ const MatchDetails = () => {
                         <span className="text-lg text-black font-semibold">Discussion</span>
                     </div>
                 </div>
-                <div className="bg-[#1E2133] p-6 rounded-b-lg px-10 flex items-center justify-around">
+                <div className="bg-[#1A1D26] p-6 rounded-b-lg px-10 md:flex items-center justify-around ml-12 md:ml-0">
                     <div className="my-4 ">
                         <div className="relative w-24 h-24 rounded-full overflow-hidden border border-gray-300">
                             <Image
@@ -159,12 +159,12 @@ const MatchDetails = () => {
                     </div>
                 </div>
                 {/* Match Results Section */}
-                <div className="bg-[#1E2133] p-6 px-10">
+                <div className="bg-[#1A1D26] p-6 px-10  md:ml-0">
                     <h3 className="text-white text-2xl font-semibold mb-4">Match Results</h3>
                     <p className="text-gray-400 text-lg mb-4">Match Score</p>
                     <p className="text-green-500 text-4xl font-bold mb-6">20-6</p>
                     <h4 className="text-white text-xl font-semibold mb-4">Winners</h4>
-                    <div className="flex items-center justify-between">
+                    <div className="md:flex items-center justify-between">
                         <div className="flex items-center gap-10">
                             {[...Array(2)].map((_, i) => (
                                 <div key={i} className="text-center">

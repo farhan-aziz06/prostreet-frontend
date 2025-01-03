@@ -81,7 +81,7 @@ const Feedback = () => {
       {/* Modal */}
       {modalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
-          <div className="bg-[#1F202A] p-6 shadow-lg w-[600px] border rounded-lg">
+          <div className="bg-[#1F202A] p-6 shadow-lg w-[600px] border rounded-lg m-5">
             <h2 className="text-xl font-bold text-center text-white mb-6">
               Add a Response
             </h2>
@@ -118,7 +118,7 @@ const Feedback = () => {
 
 const Page = () => {
   return (
-    <div className="px-10 py-5  min-h-screen">
+    <div className="px-10 py-7  min-h-screen">
     <Topbar title={"Support and Feedback"} icon={blockIcons}/>
       <Feedback />
     </div>

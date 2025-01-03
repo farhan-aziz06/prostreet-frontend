@@ -103,7 +103,6 @@ const Feedback = () => {
     );
 };
 const Dashboard = () => {
-    // Dummy data for bar chart
     const barData = useMemo(() => ({
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [
@@ -170,11 +169,11 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#1A1D26] text-white p-6">
+        <div className="min-h-screen bg-[#1A1D26] text-white md:p-6">
             {/* Header */}
-            <div className="flex justify-between items-center mb-6 px-10">
+            <div className="md:flex justify-between items-center mb-6 px-5 md:px-10">
                 <div className="flex gap-5 items-center">
-                    <span>{byeIcon}</span>
+                    <span className='hidden md:flex'>{byeIcon}</span>
                     <div>
                         <h1 className="text-2xl font-bold">
                             Welcome <span className="text-green-400">JHON</span>,
@@ -182,7 +181,7 @@ const Dashboard = () => {
                         <p className="text-gray-400">Hello, here you can manage your business by zone</p>
                     </div>
                 </div>
-                <button className=" bg-transparent border border-[#DEDEDE99] text-white rounded-xl px-5 py-4">
+                <button className=" hidden md:flex bg-transparent border border-[#DEDEDE99] text-white rounded-xl px-5 py-4">
                     <select className="bg-transparent border-none px-3">
                         <option className=''>Select Date</option>
                         <option className=''>Today</option>
@@ -193,12 +192,12 @@ const Dashboard = () => {
             </div>
 
             {/* Matches Section */}
-            <div className="flex items-start justify-start gap-10 px-10">
+            <div className="md:flex items-start justify-start gap-2 md:gap-10 px-5 md:px-10">
                 <div>
                     {['Basketball', 'Soccer', 'Tennis', 'Golf'].map((sport, index) => (
                         <div
                             key={index}
-                            className={`flex items-center justify-between gap-4 rounded p-4 w-[360px] py-4 my-3 bg-[#${['FF8E4F', 'B6F36A', '84CDEE', 'B891EB'][index]
+                            className={`flex items-center justify-between gap-4 rounded p-4 md:w-[360px] py-4 my-3 bg-[#${['FF8E4F', 'B6F36A', '84CDEE', 'B891EB'][index]
                                 }]`}
                         >
                             <div className="flex items-center justify-start gap-5">
@@ -212,7 +211,7 @@ const Dashboard = () => {
 
                 {/* User Profiles */}
                 {[...Array(2)].map((_, idx) => (
-                    <div key={idx} className="border border-[#767E97] rounded-lg px-5 py-4 w-[25%] mt-2 bg-[#30333D]">
+                    <div key={idx} className="border border-[#767E97] rounded-lg px-5 py-4 md:w-[25%] mt-2 bg-[#30333D]">
                         <div className="flex items-start justify-between">
                             <div>
                                 <Image
@@ -246,15 +245,20 @@ const Dashboard = () => {
             </div>
 
             {/* Chart Section */}
-            <div className=' flex justify-start gap-4 px-10 mt-10'>
-                <div className="bg-[#30333D] p-6 rounded-lg border border-[#767E97] w-[60%]">
+            <div className='md:flex justify-start gap-4 px-5 md:px-10 mt-10'>
+                <div className="bg-[#30333D] p-3 md:p-6 rounded-lg border border-[#767E97] w-full md:w-[60%] mb-5">
                     <h2 className="text-white text-lg font-bold mb-4">Monthly Registered Users</h2>
                     <div className="text-white text-4xl font-semibold mb-4">24000</div>
-                    <div style={{ height: '300px' }}>
-                        <Bar data={barData} options={barOptions} />
+                    {/* Scrollable container for horizontal scroll */}
+                    <div className="overflow-auto">
+                        <div style={{ minWidth: '800px', minHeight:"300px"}}>
+                            <Bar data={barData} options={barOptions} />
+                        </div>
                     </div>
                 </div>
-                <div className="bg-[#30333D] p-6 rounded-lg border border-[#767E97] w-[40%] flex items-start justify-between">
+
+
+                <div className="bg-[#30333D] p-6 rounded-lg border border-[#767E97] md:w-[40%] md:flex items-start justify-between mb-5">
                     <div>
                         <h2 className="text-white text-lg font-bold mb-20">Monthly Matches</h2>
                         <div className="relative" style={{ height: '200px', width: '200px', margin: '0 auto' }}>
@@ -269,7 +273,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     {/* Custom Legend */}
-                    <div className="mt-32 space-y-2">
+                    <div className="mt-5 md:mt-32 space-y-2">
                         <div className="flex items-center gap-2">
                             <span className="w-3 h-3 rounded-full bg-[#B6F36A]"></span>
                             <p className="text-gray-400">Soccer Matches</p>
@@ -290,7 +294,7 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <div className='px-10'>
+            <div className='px-5 md:px-10 pb-5'>
                 <Feedback />
             </div>
         </div>

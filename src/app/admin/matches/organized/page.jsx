@@ -31,23 +31,23 @@ const User = () => {
     };
 
     return (
-        <div className="px-16 py-7 min-h-screen">
+        <div className="px-5 md:px-10 py-7 min-h-screen">
             {/* Topbar */}
             <Topbar icon={blockIcons} title="Matches List" />
 
             <div className="border mt-5 rounded-lg">
                 {/* Search and Filters */}
-                <div className="p-5 flex items-center justify-between">
+                <div className="p-5 md:flex items-center justify-between">
                     <h2 className="text-lg font-medium mb-4 text-white">Information</h2>
                     <div className="flex items-center gap-4">
                         {/* Search Input */}
-                        <div className="flex items-center w-96 border rounded-md bg-gray-800">
+                        <div className="flex items-center md:w-96 border rounded-md bg-gray-800">
                             <input
                                 type="text"
                                 placeholder="Search Ex: (User ID, Name, Email)"
-                                className="w-full px-5 py-2 text-gray-300 text-lg bg-transparent outline-none"
+                                className="hidden md:flex w-full px-5 py-2 text-gray-300 text-lg bg-transparent outline-none"
                             />
-                            <button className="p-4 text-gray-300 bg-green-600 hover:text-white rounded-r-md border-l">
+                            <button className="p-2 md:p-4 text-gray-300 bg-green-600 hover:text-white rounded-r-md border-l">
                                 {searchIcon}
                             </button>
                         </div>
@@ -55,7 +55,7 @@ const User = () => {
                         {/* Organized Dropdown */}
                         <div className="relative">
                             <button
-                                className="flex items-center text-sky-100 gap-2 px-5 py-4 text-sm font-medium bg-transparent border border-green-700 rounded-md"
+                                className="flex items-center text-sky-100 gap-2 px-2 md:px-5 py-2 md:py-4 text-sm font-medium bg-transparent border border-green-700 rounded-md"
                                 onClick={toggleOrganizedDropdown}
                             >
                                 <span className="text-green-500">Organized</span>
@@ -86,7 +86,7 @@ const User = () => {
                         </div>
 
                         {/* Sport Type Selector */}
-                        <button className="flex items-center text-sky-100 gap-2 px-5 py-4 text-sm font-medium bg-transparent border border-green-700 rounded-md">
+                        <button className="flex items-center text-sky-100 gap-2 px-2 md:px-5 py-2 md:py-4 text-sm font-medium bg-transparent border border-green-700 rounded-md">
                             <span className="text-green-500">Sport Type</span>
                             <span>{dropdown}</span>
                         </button>
@@ -113,7 +113,7 @@ const User = () => {
                                     <td className="px-10 py-5 text-center">{user.sl}</td>
                                     <td className="px-10 py-5 text-center">{user.type}</td>
                                     <td className="px-10 py-5 text-center">{user.loc}</td>
-                                    <td className="px-10 py-5 text-center">{user.date}</td>
+                                    <td className="px-10 py-5 text-center text-nowrap">{user.date}</td>
                                     <td className="px-10 py-5 text-center">{user.slot}</td>
                                     <td className="px-10 py-5 text-center">
                                         <span
@@ -127,10 +127,7 @@ const User = () => {
                                             {user.status}
                                         </span>
                                     </td>
-                                    <td className="px-10 py-5 text-center flex gap-2">
-                                        {/* <Link href={"/admin/matches/organized/match"}>
-                                            <button className="p-1 rounded text-gray-900">{eyeIcon}</button>
-                                        </Link> */}
+                                    <td className="px-10 py-10 md:py-5 text-center flex gap-2">
                                         <Link href={"/admin/matches/organized/match"}>
                                             <button className="p-1 rounded text-gray-900">{eyeIcon}</button>
                                         </Link>

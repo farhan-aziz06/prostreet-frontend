@@ -33,7 +33,7 @@ const BasicInformation = () => {
     };
 
     return (
-        <div className="relative bg-[#30333D] border border-[#8B909F] rounded-lg p-6 w-[67%] ml-[500px] mt-10 text-white">
+        <div className="relative bg-[#30333D] border border-[#8B909F] rounded-lg p-6 md:w-[67%] mml-[500px] mt-10 text-white">
             {/* Section Header */}
             <div className="flex items-center mb-4">
                 <span className="text-green-500 text-xl">{InfoIcon}</span>
@@ -112,8 +112,8 @@ const BasicInformation = () => {
 
 const Profile = () => {
     return (
-        <div className="flex items-start justify-start gap-20">
-            <div className='border bg-[#30333D] border-[#8B909F] w-[30%] mt-10 rounded-lg'>
+        <div className="md:flex items-start justify-start gap-20">
+            <div className='border bg-[#30333D] border-[#8B909F] md:w-[30%] mt-10 rounded-lg'>
                 <div className="flex items-center justify-start gap-5 p-4">
                     <span>{userInfoIcon}</span>
                     <h2 className="text-[#14AE5C] text-lg font-semibold">Basic Information</h2>
@@ -126,7 +126,7 @@ const Profile = () => {
                 </Link>
 
             </div>
-            <div className='relative border bg-[#30333D] border-[#8B909F] w-[70%] h-[180px] mt-10 rounded-lg'>
+            <div className='relative border bg-[#30333D] border-[#8B909F] md:w-[70%] h-[180px] mt-10 rounded-lg'>
                 <div className='absolute border bg-[#14AE5C33] border-[#8B909F] w-full rounded-lg'>
                     <div className="relative p-4">
                         <div className="relative inline-block">
@@ -149,7 +149,7 @@ const Profile = () => {
 }
 const PersonalInformation = () => {
     return (
-        <div className="px-10 py-7 min-h-screen">
+        <div className="px-5 md:px-10 py-7 min-h-screen">
             <Topbar title={"Setting"} icon={blockIcons} button={"Dashboard"} buttonIcon={homeIcon} />
             <Profile />
             <BasicInformation />

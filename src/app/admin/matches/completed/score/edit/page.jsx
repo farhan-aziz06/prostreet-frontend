@@ -22,18 +22,18 @@ const MatchDetails = () => {
     };
 
     return (
-        <div className="bg-[#181A28] flex items-center justify-center p-6">
-            <div className="w-full bg-[#2C2F48] rounded-lg shadow-lg">
+        <div className="bg-[#1A1D26] flex items-center justify-center p-6">
+            <div className="w-full bg-[#1A1D26] rounded-lg shadow-lg">
                 {/* Match Details Section */}
                 <div className="bg-[#B6F36A] py-6 rounded-t-lg relative">
                     {/* Details Header */}
                     <div className="pb-20">
-                        <h2 className="text-xl font-semibold text-black text-center">Match Details</h2>
-                        <p className="text-sm text-black mt-1 text-center">Here are some details of the match selected</p>
+                        <h2 className="text-xl font-semibold text-black md:text-center px-3">Match Details</h2>
+                        <p className="text-sm text-black mt-1 md:text-center px-3">Here are some details of the match selected</p>
                         <span className="absolute top-6 right-6 text-blue-500 font-semibold cursor-pointer">Game Open</span>
                     </div>
                     {/* Match Info */}
-                    <div className="grid grid-cols-3 gap-4 mt-4 text-black px-10">
+                    <div className="grid md:grid-cols-3 gap-4 mt-4 text-black px-10">
                         <div>
                             <div className="flex items-center gap-2 pb-14">
                                 <span className="text-lg">{calenderIcon}</span>
@@ -85,7 +85,7 @@ const MatchDetails = () => {
                         <span className="text-lg text-black font-semibold">Discussion</span>
                     </div>
                 </div>
-                <div className="bg-[#1E2133] p-6 rounded-b-lg px-10 flex items-center justify-around">
+                <div className="bg-[#1A1D26] p-6 rounded-b-lg px-10 md:flex items-center justify-around ml-12 md:ml-0">
                     <div className="my-4 ">
                         <div className="relative w-24 h-24 rounded-full overflow-hidden border border-gray-300">
                             <Image
@@ -169,19 +169,19 @@ const MatchDetails = () => {
                     </div>
                 </div>
                 {/* Updated Match Results Section */}
-                <div className="bg-[#1E2133] p-6 px-10">
+                <div className="bg-[#1A1D26] py-6 md:px-10">
                     <h3 className="text-white text-2xl font-semibold mb-6">Match Results</h3>
                     <div className="mb-4">
                         <label className="text-white text-lg block mb-2">Match Score</label>
                         <input
                             type="text"
-                            className="w-1/2 rounded-3xl bg-[#54545457] text-gray-300 px-4 py-5 outline-none"
+                            className="w-full md:w-1/2 rounded-3xl bg-[#54545457] text-gray-300 px-4 py-5 outline-none"
                             placeholder="20"
                         />
                     </div>
                     <div className="mb-6">
                         <label className="text-white text-lg block mb-2">Select Winner</label>
-                        <div className="w-1/2 flex items-center rounded-3xl bg-[#54545457]">
+                        <div className="md:w-1/2 flex items-center rounded-3xl bg-[#54545457]">
                             <input
                                 type="text"
                                 className="w-full rounded-l-3xl bg-transparent text-gray-300 px-4 py-5 outline-none"
@@ -194,7 +194,7 @@ const MatchDetails = () => {
                                 Select
                             </button>
                         </div>
-                        <div className="bg-[#1E2133] p-5 flex justify-end">
+                        <div className="bg-[#1A1D26] p-5 flex justify-end">
                             <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold w-32 mt-6">Save</button>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ const MatchDetails = () => {
             {/* Select Winners Modal */}
             {showSelectModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-[#1E2133] p-8 rounded-lg w-[400px] shadow-lg">
+                    <div className="bg-[#1E2133] p-8 rounded-lg w-[400px] shadow-lg m-5">
                         <h3 className="text-white text-2xl font-semibold mb-6 text-center">Select Winners</h3>
                         {[...Array(5)].map((_, i) => (
                             <div key={i} className="flex items-center gap-4 mb-4">

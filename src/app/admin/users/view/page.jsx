@@ -21,7 +21,7 @@ const EditUserModal = ({ user, onClose, onSave }) => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[500px]">
+            <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[500px] m-5">
                 <h2 className="text-lg font-semibold mb-2 text-center text-white">Edit User</h2>
                 <p className="text-sm text-gray-400 mb-6 text-center">
                     Here you can make changes to the entries
@@ -141,7 +141,7 @@ const ProfileTable = () => {
     return (
         <div className="pt-10 text-white rounded-lg">
             {/* Profile Section */}
-            <div className="flex items-center gap-6 px-16 py-10 bg-[#14AE5C33] border-[#8B909F] rounded-lg">
+            <div className="md:flex items-center gap-6 px-10 py-7 bg-[#14AE5C33] border-[#8B909F] rounded-lg">
                 <Image
                     src={Profile}
                     alt="Profile"
@@ -152,8 +152,8 @@ const ProfileTable = () => {
                     <p className="text-gray-300">kevin@gmail.com</p>
                     <p className="text-gray-300">Male</p>
                 </div>
-                <div className="ml-auto text-right">
-                    <div className="flex items-center justify-between">
+                <div className="ml-auto text-right mt-5">
+                    <div className="flex items-center gap-10 md:justify-between">
                         <div className="mr-4">
                             <p className="text-xl font-semibold pb-2">142</p>
                             <p className="text-sm text-gray-300">Wins</p>
@@ -207,7 +207,7 @@ const ProfileTable = () => {
                                 <td className="px-10 py-5 text-center">{user.sl}</td>
                                 <td className="px-10 py-5 text-center">{user.type}</td>
                                 <td className="px-10 py-5 text-center">{user.loc}</td>
-                                <td className="px-10 py-5 text-center">{user.date}</td>
+                                <td className="px-10 py-5 text-center text-nowrap">{user.date}</td>
                                 <td className="px-10 py-5 text-center">{user.slot}</td>
                                 <td className="px-10 py-5 text-center">
                                     <span
@@ -221,7 +221,7 @@ const ProfileTable = () => {
                                         {user.status}
                                     </span>
                                 </td>
-                                <td className="px-10 py-5 text-center flex gap-2">
+                                <td className="px-10 py-10 md:py-5 text-center flex gap-2">
                                     <button className="p-1 rounded text-gray-900">{eyeIcon}</button>
                                     <button
                                         className="p-1 rounded text-gray-900"
@@ -245,7 +245,7 @@ const ProfileTable = () => {
             {/* Delete Modal */}
             {showDeleteModal && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
-                    <div className="bg-[#222530] p-6 rounded-lg shadow-lg w-[30%] text-center border border-[#4F4E4E]">
+                    <div className="bg-[#222530] p-6 rounded-lg shadow-lg md:w-[30%] m-5 text-center border border-[#4F4E4E]">
                         <h2 className="text-lg font-semibold mb-4">Do you really want to delete this item?</h2>
                         <p className="text-sm font-medium mb-2">User deleted once csn not be restored again. Are you sure you want to delete this?</p>
                         <div className="flex gap-4 justify-center">
@@ -280,7 +280,7 @@ const ProfileTable = () => {
 
 const View = () => {
     return (
-        <div className="px-16 py-7 min-h-screen">
+        <div className=" px-5 md:px-10 py-7 min-h-screen">
             <Topbar icon={blockIcons} title={'Users Details'} />
             <ProfileTable />
         </div>

@@ -44,7 +44,7 @@ const Docs = () => {
           <h2 className="text-lg font-bold">Privacy Policy</h2>
         </div>
         {activeSection === 'privacyPolicy' && (
-          <div className="p-6 bg-[#424756] flex items-center gap-4">
+          <div className="p-6 bg-[#424756] md:flex items-center gap-4">
             {selectedImage ? (
               <Image
                 src={selectedImage}
@@ -56,7 +56,7 @@ const Docs = () => {
             ) : (
               <div className="text-gray-400">No document uploaded</div>
             )}
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 mt-4">
               <button
                 className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold"
                 onClick={handleView}
@@ -140,7 +140,7 @@ const Docs = () => {
 
 const Page = () => {
   return (
-    <div className="px-10 py-5 bg-[#1A1D26] min-h-screen">
+    <div className="px-5 md:px-10 py-5 bg-[#1A1D26] min-h-screen">
       <Topbar title={'Documentation'} icon={blockIcons} />
       <Docs />
     </div>

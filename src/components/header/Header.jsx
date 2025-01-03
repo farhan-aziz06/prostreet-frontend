@@ -15,11 +15,11 @@ const Header = () => {
     };
 
     return (
-        <header className="flex justify-end items-center gap-10 p-6 text-white relative bg-[#1A1D26]">
+        <header className="flex md:justify-end items-center md:gap-10 px-3 md:px-6 py-6 ml-3 md:ml-0 text-white relative bg-[#1A1D26]">
             {/* Notification Button */}
             <div className="relative">
                 <button
-                    className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500 hover:text-black mx-2"
+                    className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500 hover:text-black ml-4"
                     aria-label="Notifications"
                     onClick={handleNotificationClick}
                 >
@@ -29,14 +29,14 @@ const Header = () => {
 
             {/* Settings Button */}
             <button
-                className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500 hover:text-black mx-2"
+                className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500 hover:text-black ml-3"
                 aria-label="Settings"
             >
                 {settingsIcon}
             </button>
 
             {/* Profile Section */}
-            <div className="flex items-center border-l border-gray-700 px-10">
+            <div className="flex items-center border-l border-gray-700 px-5 md:px-10 ml-5 md:ml-0">
                 <Link href="/admin/dashboard/personal-information">
                     <button
                         className="flex items-center space-x-3 focus:outline-none"
@@ -55,7 +55,6 @@ const Header = () => {
                         </div>
                     </button>
                 </Link>
-
             </div>
 
             {/* Overlay with Blur Background */}
