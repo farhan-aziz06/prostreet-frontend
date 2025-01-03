@@ -7,21 +7,21 @@ export const LoginPage = () => {
   return (
     <div className="flex min-h-screen bg-custom-backgroundColor">
       {/* Left Section */}
-      <div className="flex-1 flex flex-col justify-center items-center p-8 text-white">
+      <div className="flex-1 md:flex flex-col justify-center items-center p-4 md:p-8 text-white">
         {/* Logo and Title */}
-        <div className="mb-8 text-center">
+        <div className="mb-8 md:text-center">
           <Image
             src="/logo.svg"
             alt="Pro Street"
             width={300}
             height={200}
-            className='ml-20'
+            className='md:ml-20'
           />
-          <p className=" text-xl mt-5">Managing made delightful. Login now to experience it.</p>
+          <p className="flex text-xs md:text-xl text-nowrap mt-5">Managing made delightful. Login now to experience it.</p>
         </div>
 
         {/* Login Form */}
-        <form className="w-full max-w-xl space-y-5 mt-10">
+        <form className="w-[100%] md:w-full md:max-w-xl space-y-5 mt-10">
           <div className="relative">
             <label
               htmlFor="email"
@@ -48,13 +48,13 @@ export const LoginPage = () => {
             />
           </div>
           <a href="#" className="text-lg text-custom-lightGreen mt-1 block text-right">Forgot Password?</a>
-          <div className="flex items-center mb-2">
+          <div className="flex items-center">
             <input
               type="checkbox"
               id="remember"
-              className="h-5 w-5 rounded appearance-none bg-custom-backgroundColor border border-gray-300 checked:bg-white checked:border-black cursor-pointer checked:before:content-['✔'] checked:before:text-black checked:before:flex checked:before:items-center checked:before:justify-center"
+              className="h-5 w-5 mb-2 rounded appearance-none bg-custom-backgroundColor border border-gray-300 checked:bg-white checked:border-black cursor-pointer checked:before:content-['✔'] checked:before:text-black checked:before:flex checked:before:items-center checked:before:justify-center"
             />
-            <label htmlFor="remember" className="ml-2 font-medium text-lg ">Remember me</label>
+            <label htmlFor="remember" className="ml-2 mb-2 font-medium text-lg ">Remember me</label>
           </div>
           <Link href={"/admin/dashboard"}>
             <button
@@ -65,16 +65,16 @@ export const LoginPage = () => {
             </button>
           </Link>
         </form>
-        <div className="mt-10 w-[570px] border-t  relative">
-          <p className="text-lg absolute ml-32 px-4 -top-4 bg-custom-backgroundColor">
+        <div className="mt-10  md:w-[570px] md:border-t  md:relative">
+          <p className="text-lg text-center text-nowrap md:absolute md:ml-32 md:px-4 -top-4 bg-custom-backgroundColor">
             Don’t have an account? <a href="#" className="text-custom-lightGreen">Sign Up</a>
           </p>
         </div>
-        <button className="mt-10 py-5 px-6 w-[570px] border border-gray-600 rounded-lg bg-custom-backgroundColor hover:bg-custom-buttonColor flex justify-center items-center">
+        <button className="mt-10 py-5 px-6 w-[100%] md:w-[570px] border border-gray-600 rounded-lg bg-custom-backgroundColor hover:bg-custom-buttonColor flex justify-center items-center">
           <span>{googleIcon}</span>
         </button>
 
-        <footer className="mt-8 text-center text-lg font-semibold">
+        <footer className="flex  mt-6 md:mt-8 ml-6 md:ml-0 text-center text-sm md:text-lg font-semibold">
           &copy; 2023 Prostreet | All rights reserved
         </footer>
       </div>

@@ -5,6 +5,7 @@ import UserAvatar from './useravatar.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import Notifications from './notification'; // Ensure the path is correct
+import MobileSidebar from '../sidebar/MobileSidebar';
 
 const Header = () => {
     const [showNotifications, setShowNotifications] = useState(false);
@@ -16,27 +17,29 @@ const Header = () => {
 
     return (
         <header className="flex md:justify-end items-center md:gap-10 px-3 md:px-6 py-6 ml-3 md:ml-0 text-white relative bg-[#1A1D26]">
+            <MobileSidebar />
             {/* Notification Button */}
-            <div className="relative">
+            <div className="relative left-2 flex gap-5">
                 <button
-                    className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500 hover:text-black ml-4"
+                    className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500/20 hover:text-black"
                     aria-label="Notifications"
                     onClick={handleNotificationClick}
                 >
                     {notificationIcon}
                 </button>
+                <button
+                    className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500/20 hover:text-black "
+                    aria-label="Settings"
+                >
+                    {settingsIcon}
+                </button>
             </div>
 
             {/* Settings Button */}
-            <button
-                className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500 hover:text-black ml-3"
-                aria-label="Settings"
-            >
-                {settingsIcon}
-            </button>
+
 
             {/* Profile Section */}
-            <div className="flex items-center border-l border-gray-700 px-5 md:px-10 ml-5 md:ml-0">
+            <div className="flex items-center border-l border-[#D6D6D666] px-5 ml-5 md:ml-0">
                 <Link href="/admin/dashboard/personal-information">
                     <button
                         className="flex items-center space-x-3 focus:outline-none"

@@ -21,84 +21,93 @@ const EditUserModal = ({ user, onClose, onSave }) => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[500px] m-5">
-                <h2 className="text-lg font-semibold mb-2 text-center text-white">Edit User</h2>
-                <p className="text-sm text-gray-400 mb-6 text-center">
-                    Here you can make changes to the entries
-                </p>
-                <form className="space-y-4 border-t mb-4">
-                    <div className="mt-4">
-                        <label className="block pb-2 text-sm mb-1 text-gray-300">Name</label>
+            <div className="bg-[#222530] p-6 md:px-16 rounded-lg shadow-lg m-5 w-full max-w-2xl">
+                <div className="py-7">
+                    <h2 className="text-lg font-semibold mb-2 text-center text-white">Edit User</h2>
+                    <p className="text-sm text-gray-400 mb-6 text-center">
+                        Here you can make changes to the entries
+                    </p>
+                </div>
+                <form className="space-y-6 border-t border-[#E8E8E833] py-5">
+                    {/* Name */}
+                    <div className="flex flex-col md:flex-row items-center gap-4">
+                        <label className="text-sm text-gray-300 w-full md:w-1/4">Name</label>
                         <input
                             type="text"
                             name="name"
                             value={formData.name || ""}
                             onChange={handleChange}
-                            className="w-full p-2 bg-gray-700 rounded border border-gray-600 text-white"
+                            className="w-full md:w-3/4 p-2 bg-[#222530] rounded-lg border border-[#E5E5E580] text-white"
                             placeholder="Enter name"
                         />
                     </div>
-                    <div>
-                        <label className="block pb-2 text-sm mb-1 text-gray-300">Age</label>
+                    {/* Age */}
+                    <div className="flex flex-col md:flex-row items-center gap-4">
+                        <label className="text-lg font-semibold text-white w-full md:w-1/4">Age</label>
                         <input
                             type="text"
                             name="age"
                             value={formData.age || ""}
                             onChange={handleChange}
-                            className="w-full p-2 bg-gray-700 rounded border border-gray-600 text-white"
+                            className="w-full md:w-3/4 p-2 bg-[#222530] rounded-lg border border-[#E5E5E580] text-white"
                             placeholder="Enter age"
                         />
                     </div>
-                    <div>
-                        <label className="block pb-2 text-sm mb-1 text-gray-300">Registration Date</label>
+                    {/* Registration Date */}
+                    <div className="flex flex-col md:flex-row items-center gap-4">
+                        <label className="text-lg font-semibold text-white w-full md:w-1/4 text-nowrap">Registration Date</label>
                         <input
                             type="text"
                             name="registrationDate"
                             value={formData.registrationDate || ""}
                             onChange={handleChange}
-                            className="w-full p-2 bg-gray-700 rounded border border-gray-600 text-white"
+                            className="w-full md:w-3/4 p-2 bg-[#222530] rounded-lg border border-[#E5E5E580] text-white"
                             placeholder="Enter registration date"
                         />
                     </div>
-                    <div>
-                        <label className="block pb-2 text-sm mb-1 text-gray-300">Gender</label>
+                    {/* Gender */}
+                    <div className="flex flex-col md:flex-row items-center gap-4">
+                        <label className="text-lg font-semibold text-white w-full md:w-1/4">Gender</label>
                         <input
                             type="text"
                             name="gender"
                             value={formData.gender || ""}
                             onChange={handleChange}
-                            className="w-full p-2 bg-gray-700 rounded border border-gray-600 text-white"
+                            className="w-full md:w-3/4 p-2 bg-[#222530] rounded-lg border border-[#E5E5E580] text-white"
                             placeholder="Enter gender"
                         />
                     </div>
-                    <div>
-                        <label className="block pb-2 text-sm mb-1 text-gray-300">Email</label>
+                    {/* Email */}
+                    <div className="flex flex-col md:flex-row items-center gap-4">
+                        <label className="text-lg font-semibold text-white w-full md:w-1/4">Email</label>
                         <input
                             type="email"
                             name="email"
                             value={formData.email || ""}
                             onChange={handleChange}
-                            className="w-full p-2 bg-gray-700 rounded border border-gray-600 text-white"
+                            className="w-full md:w-3/4 p-2 bg-[#222530] rounded-lg border border-[#E5E5E580] text-white"
                             placeholder="Enter email"
                         />
                     </div>
-                    <div className="flex gap-4 justify-center mt-6">
+                    
+                </form>
+                {/* Buttons */}
+                <div className="flex gap-4 justify-center mt-12">
                         <button
                             type="button"
-                            className="bg-green-600 px-4 py-2 rounded text-white"
+                            className="bg-[#14AE5C] px-20 py-3 rounded-lg text-white"
                             onClick={handleSave}
                         >
                             Save
                         </button>
                         <button
                             type="button"
-                            className="bg-red-600 px-4 py-2 rounded text-white"
+                            className="bg-red-600 px-20 py-3 rounded-lg text-white"
                             onClick={onClose}
                         >
                             Cancel
                         </button>
                     </div>
-                </form>
             </div>
         </div>
     );
@@ -109,6 +118,7 @@ const ProfileTable = () => {
     const [showDeleteModal, setShowDeleteModal] = useState(false); // To show/hide delete modal
     const [showEditModal, setShowEditModal] = useState(false); // To show/hide edit modal
     const [selectedUser, setSelectedUser] = useState(null); // Store the user data for delete or edit
+    const [showOrganizedDropdown, setShowOrganizedDropdown] = useState(false);
 
     const handleRating = (index) => {
         setRating(index + 1); // Set the rating (1-based index)
@@ -137,24 +147,32 @@ const ProfileTable = () => {
         console.log("Updated User Data:", updatedUser);
         setShowEditModal(false); // Close the modal
     };
+    const toggleOrganizedDropdown = () => {
+        setShowOrganizedDropdown(!showOrganizedDropdown);
+    };
+
+    const handleOrganizedOptionClick = (option) => {
+        console.log(`Selected option: ${option}`);
+        setShowOrganizedDropdown(false); // Hide dropdown
+    };
 
     return (
         <div className="pt-10 text-white rounded-lg">
             {/* Profile Section */}
-            <div className="md:flex items-center gap-6 px-10 py-7 bg-[#14AE5C33] border-[#8B909F] rounded-lg">
+            <div className="md:flex items-center gap-6 px-10 pt-12 pb-5 bg-[#14AE5C33] border border-[#8B909F] rounded-lg">
                 <Image
                     src={Profile}
                     alt="Profile"
-                    className="w-24 h-24 rounded-full"
+                    className="w-32 rounded-full border-2 border-[#8B909F]"
                 />
                 <div>
-                    <h2 className="text-lg font-semibold">Kevin, K</h2>
-                    <p className="text-gray-300">kevin@gmail.com</p>
-                    <p className="text-gray-300">Male</p>
+                    <h2 className="text-lg font-semibold py-1">Kevin, K</h2>
+                    <p className="text-gray-300 py-1">kevin@gmail.com</p>
+                    <p className="text-gray-300 py-1">Male</p>
                 </div>
                 <div className="ml-auto text-right mt-5">
-                    <div className="flex items-center gap-10 md:justify-between">
-                        <div className="mr-4">
+                    <div className="flex items-center gap-8">
+                        <div className="ml-3">
                             <p className="text-xl font-semibold pb-2">142</p>
                             <p className="text-sm text-gray-300">Wins</p>
                         </div>
@@ -181,16 +199,59 @@ const ProfileTable = () => {
                     </div>
                 </div>
             </div>
+            {/* Buttons */}
+            <div className="flex justify-end items-end gap-7 mt-20">
+                <div>
+                    <button
+                        className="flex items-center text-sky-100 gap-4 px-2 md:px-5 py-2 md:py-3 text-sm font-medium bg-transparent border-2 border-green-700 rounded-md"
+                        onClick={toggleOrganizedDropdown}
+                    >
+                        <span className="text-[#14AE5C]">Completed</span>
+                        <span>{dropdown}</span>
+                    </button>
+                </div>
+                <div className="relative">
+                    <button
+                        className="flex items-center text-sky-100 gap-4 px-2 md:px-5 py-2 md:py-3 text-sm font-medium bg-transparent border-2 border-green-700 rounded-md"
+                        onClick={toggleOrganizedDropdown}
+                    >
+                        <span className="text-[#14AE5C]">Sports Type</span>
+                        <span>{dropdown}</span>
+                    </button>
+                    {showOrganizedDropdown && (
+                        <div className="absolute mt-2 bg-[#1A1D26] border border-gray-700 rounded-lg w-40 shadow-lg">
+                            <ul className="py-2">
+                                <Link href={"#"}>
+                                    <li
+                                        className="px-4 py-2 text-gray-300 hover:bg-[#DEDEDE33] hover:text-white cursor-pointer"
+                                        onClick={() => handleOrganizedOptionClick('Organized')}
+                                    >
+                                        Soccer
+                                    </li>
+                                </Link>
+                                <Link href={"/admin/matches/completed"}>
+                                    <li
+                                        className="px-4 py-2 text-gray-300 hover:bg-[#DEDEDE33] hover:text-white cursor-pointer"
+                                        onClick={() => handleOrganizedOptionClick('Completed')}
+                                    >
+                                        Football
+                                    </li>
+                                </Link>
+                            </ul>
+                        </div>
+                    )}
+                </div>
+            </div>
 
             {/* Table */}
-            <div className="overflow-x-auto mt-6">
-                <table className="w-full text-sm text-left text-gray-400">
+            <div className="overflow-x-auto mt-3">
+                <table className="w-full text-sm text-left text-white">
                     <thead className="bg-[#14AE5C] text-white">
                         <tr>
                             <th className="px-10 py-5 text-center">SL</th>
                             <th className="px-10 py-5 text-center">TYPE</th>
                             <th className="px-10 py-5 text-center">LOCATION</th>
-                            <th className="px-10 py-5 text-center">DATE & TIME</th>
+                           <th className="px-10 py-5 text-center text-nowrap">DATE & TIME</th>
                             <th className="px-10 py-5 text-center">SLOT AVILABLE</th>
                             <th className="px-10 py-5 text-center">STATUS</th>
                             <th className="px-10 py-5 text-center">ACTIONS</th>
@@ -198,10 +259,10 @@ const ProfileTable = () => {
                     </thead>
                     <tbody>
                         {[
-                            { sl: 1, type: "Football", loc: "John", date: "14:00, June 13, 2024", slot: "24", status: "open" },
-                            { sl: 2, type: "Football", loc: "Selena", date: "14:00, June 13, 2024", slot: "24", status: "open" },
-                            { sl: 3, type: "Football", loc: "Selena", date: "14:00, June 13, 2024", slot: "24", status: "close" },
-                            { sl: 4, type: "Football", loc: "Selena", date: "14:00, June 13, 2024", slot: "24", status: "close" },
+                            { sl: 1, type: "Football", loc: "John", date: "14:00, June 13, 2024", slot: "24", status: "Open" },
+                            { sl: 2, type: "Football", loc: "Selena", date: "14:00, June 13, 2024", slot: "24", status: "Open" },
+                            { sl: 3, type: "Football", loc: "Selena", date: "14:00, June 13, 2024", slot: "24", status: "Close" },
+                            { sl: 4, type: "Football", loc: "Selena", date: "14:00, June 13, 2024", slot: "24", status: "Close" },
                         ].map((user) => (
                             <tr key={user.sl}>
                                 <td className="px-10 py-5 text-center">{user.sl}</td>
@@ -211,30 +272,30 @@ const ProfileTable = () => {
                                 <td className="px-10 py-5 text-center">{user.slot}</td>
                                 <td className="px-10 py-5 text-center">
                                     <span
-                                        className={`p-2 rounded-full ${user.status === "open"
-                                            ? "bg-green-400 text-green-900"
-                                            : user.status === "close"
-                                                ? "bg-rose-200 text-red-900"
-                                                : "bg-gray-300 text-gray-900"
+                                        className={`px-8 py-2 text-center rounded-full ${user.status === "Open"
+                                            ? "bg-[#44DD261A] text-[#44DD26]"
+                                            : "bg-[#F31E0A1A] text-[#F31E0A]"
                                             }`}
                                     >
                                         {user.status}
                                     </span>
                                 </td>
-                                <td className="px-10 py-10 md:py-5 text-center flex gap-2">
-                                    <button className="p-1 rounded text-gray-900">{eyeIcon}</button>
-                                    <button
-                                        className="p-1 rounded text-gray-900"
-                                        onClick={() => handleEditClick(user)}
-                                    >
-                                        {editIcon}
-                                    </button>
-                                    <button
-                                        className="p-1 rounded text-gray-900"
-                                        onClick={() => handleDeleteClick(user)}
-                                    >
-                                        {deleteIcon}
-                                    </button>
+                                <td className="px-1 py-10 md:py-5 text-center flex ">
+                                    <div className="ml-7">
+                                        <button className="p-1 rounded text-gray-900">{eyeIcon}</button>
+                                        <button
+                                            className="p-1 rounded text-gray-900"
+                                            onClick={() => handleEditClick(user)}
+                                        >
+                                            {editIcon}
+                                        </button>
+                                        <button
+                                            className="p-1 rounded text-gray-900"
+                                            onClick={() => handleDeleteClick(user)}
+                                        >
+                                            {deleteIcon}
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
@@ -245,18 +306,18 @@ const ProfileTable = () => {
             {/* Delete Modal */}
             {showDeleteModal && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
-                    <div className="bg-[#222530] p-6 rounded-lg shadow-lg md:w-[30%] m-5 text-center border border-[#4F4E4E]">
+                    <div className="bg-[#222530] p-6 md:py-16 rounded-lg shadow-lg md:w-[40%] m- 5 text-center border border-[#4F4E4E]">
                         <h2 className="text-lg font-semibold mb-4">Do you really want to delete this item?</h2>
-                        <p className="text-sm font-medium mb-2">User deleted once csn not be restored again. Are you sure you want to delete this?</p>
-                        <div className="flex gap-4 justify-center">
+                        <p className="text-sm font-medium mb-2 text-[#FFFFFF99]">User deleted once csn not be restored again. Are you sure you want to delete this?</p>
+                        <div className="flex gap-4 justify-center mt-10">
                             <button
-                                className="bg-red-600 px-7 py-2 rounded text-white"
+                                className="bg-red-600 px-20 py-3 rounded-xl text-white"
                                 onClick={handleDeleteConfirm}
                             >
                                 Yes
                             </button>
                             <button
-                                className="bg-green-600 px-7 py-2 rounded text-white"
+                                className="bg-green-600 px-20 py-3 rounded-xl text-white"
                                 onClick={handleDeleteCancel}
                             >
                                 No

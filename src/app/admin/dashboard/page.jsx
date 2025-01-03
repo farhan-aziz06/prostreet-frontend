@@ -3,7 +3,7 @@ import React, { useMemo, useState } from 'react';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import Image from 'next/image';
 import Profile from './player profile.png';
-import { basketballIcon, byeIcon } from '@/components/resources/icons';
+import { basketballIcon, byeIcon, startFeedbackIcon, upArrowIcon } from '@/components/resources/icons';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -43,11 +43,13 @@ const Feedback = () => {
     };
 
     return (
-        <div className="text-white p-6 mt-10 border border-[#767E97] rounded-lg bg-[#30333D]">
-            <h2 className="text-2xl font-bold mb-6">Feedback</h2>
-
+        <div className="text-white mt-2 rounded-lg bg-[#30333D]">
+            <div className="flex items-center justify-start gap-3 mb-6 p-6 border-b border-[#E4E4E466]">
+                <span className=''>{startFeedbackIcon}</span>
+                <h2 className="text-2xl font-bold ">Recent Feedback</h2>
+            </div>
             {/* Feedback List */}
-            <div className="space-y-6">
+            <div className="space-y-6 p-6">
                 {feedbacks.map((feedback, index) => (
                     <div
                         key={index}
@@ -58,7 +60,7 @@ const Feedback = () => {
                             <p className="text-sm text-gray-300 mb-2">{feedback.message}</p>
                         </div>
                         <button
-                            className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold"
+                            className="bg-green-500 text-white px-9 py-2 rounded-lg font-semibold"
                             onClick={() => openModal(feedback)}
                         >
                             Respond
@@ -90,7 +92,7 @@ const Feedback = () => {
                         </div>
                         <div className="flex justify-center">
                             <button
-                                className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold"
+                                className="bg-[#14AE5C] text-white px-6 py-2 rounded-lg "
                                 onClick={closeModal}
                             >
                                 Respond
@@ -103,6 +105,7 @@ const Feedback = () => {
     );
 };
 const Dashboard = () => {
+    const [isOpen, setIsOpen] = useState(false);
     const barData = useMemo(() => ({
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [
@@ -113,21 +116,62 @@ const Dashboard = () => {
                     const colors = Array(context.raw.length).fill('#FEDB8A');
                     return colors;
                 },
-                borderRadius: 5,
-                barThickness: 20,
+                hoverBackgroundColor: '#14AE5C',
+                borderRadius: 7,
+                barThickness: 50,
+                barPercentage: 0.7,
+                categoryPercentage: 0.9,
             },
         ],
     }), []);
+
+    const barOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    label: (context) => {
+                        // Replace with your icon
+                        return `${context.raw} users`;
+                    },
+                },
+                backgroundColor: '#09655A',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                cornerRadius: 10,
+                displayColors: false, // Remove color indicator box
+                position: 'nearest', // Position the tooltip near the bar
+                yAlign: 'bottom', // Align tooltip above the bar
+                xAlign: 'center', // Align tooltip center horizontally
+            },
+        },
+        scales: {
+            x: {
+                grid: { display: false },
+                ticks: { color: '#fff' },
+            },
+            y: {
+                grid: { display: false }, // Hide Y-axis grid
+                ticks: { display: false }, // Hide Y-axis labels
+            },
+        },
+    };
+
+
     const doughnutData = useMemo(() => ({
         labels: ['Soccer Matches', 'Basketball Matches', 'Tennis Matches', 'Golf'],
         datasets: [
             {
                 data: [120, 90, 60, 30], // Match data
-                backgroundColor: ['#B6F36A', '#FF8E4F', '#84CDEE', '#B891EB'], // Colors for sections
-                hoverOffset: 4,
+                backgroundColor: ['#B6F36A', '#FF8E4F', '#84CDEE', '#B891EB'],
+                borderWidth: 2, // Set border width for the gap
+                borderColor: '#1F2937' // Colors for sections
             },
         ],
     }), []);
+
     const doughnutOptions = {
         responsive: true,
         maintainAspectRatio: false,
@@ -137,43 +181,18 @@ const Dashboard = () => {
                 backgroundColor: '#1F2937',
                 titleColor: '#FFFFFF',
                 bodyColor: '#FFFFFF',
-                borderColor: '#FFFFFF',
-                borderWidth: 1,
             },
         },
+        cutout: '80%', // Decrease width of filled part
     };
 
-    const barOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: { display: false },
-            tooltip: {
-                callbacks: { label: (context) => `${context.raw} users` },
-                backgroundColor: '#14AE5C',
-                titleColor: '#fff',
-                bodyColor: '#fff',
-                cornerRadius: 5,
-            },
-        },
-        scales: {
-            x: {
-                grid: { display: false },
-                ticks: { color: '#fff' },
-            },
-            y: {
-                grid: { color: '#424756' },
-                ticks: { color: '#fff' },
-            },
-        },
-    };
 
     return (
-        <div className="min-h-screen bg-[#1A1D26] text-white md:p-6">
+        <div className="min-h-screen bg-[#1A1D26] text-white">
             {/* Header */}
             <div className="md:flex justify-between items-center mb-6 px-5 md:px-10">
-                <div className="flex gap-5 items-center">
-                    <span className='hidden md:flex'>{byeIcon}</span>
+                <div className="flex gap-5 items-start">
+                    <span className='hidden md:flex  mt-2 '>{byeIcon}</span>
                     <div>
                         <h1 className="text-2xl font-bold">
                             Welcome <span className="text-green-400">JHON</span>,
@@ -181,37 +200,57 @@ const Dashboard = () => {
                         <p className="text-gray-400">Hello, here you can manage your business by zone</p>
                     </div>
                 </div>
-                <button className=" hidden md:flex bg-transparent border border-[#DEDEDE99] text-white rounded-xl px-5 py-4">
-                    <select className="bg-transparent border-none px-3">
-                        <option className=''>Select Date</option>
-                        <option className=''>Today</option>
-                        <option className=''>This Week</option>
-                        <option className=''>This Month</option>
-                    </select>
-                </button>
+                <div className="relative hidden md:flex">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="bg-transparent border border-[#DEDEDE99] text-white rounded-xl px-5 py-3 outline-none flex items-center justify-between gap-24"
+                    >
+                        <span>Select Date</span>
+                        <svg
+                            className="w-4 h-4 ml-2"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    {isOpen && (
+                        <div className="absolute top-full left-0 mt-2 w-full bg-[#1A1D26] border border-[#DEDEDE99] rounded-xl shadow-lg">
+                            <ul className="text-white">
+                                <li className="px-5 py-4 hover:bg-[#DEDEDE33] cursor-pointer rounded-xl">Today</li>
+                                <li className="px-5 py-4 hover:bg-[#DEDEDE33] cursor-pointer rounded-xl">This Week</li>
+                                <li className="px-5 py-4 hover:bg-[#DEDEDE33] cursor-pointer rounded-xl">This Month</li>
+                            </ul>
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Matches Section */}
-            <div className="md:flex items-start justify-start gap-2 md:gap-10 px-5 md:px-10">
+            <div className="md:flex items-start justify-start gap-2 md:gap-5 px-5 md:px-10">
                 <div>
                     {['Basketball', 'Soccer', 'Tennis', 'Golf'].map((sport, index) => (
                         <div
                             key={index}
-                            className={`flex items-center justify-between gap-4 rounded p-4 md:w-[360px] py-4 my-3 bg-[#${['FF8E4F', 'B6F36A', '84CDEE', 'B891EB'][index]
+                            className={`flex items-center justify-between gap-4 rounded p-4 md:w-[460px] py-4 my-3 bg-[#${['FF8E4F', 'B6F36A', '84CDEE', 'B891EB'][index]
                                 }]`}
                         >
-                            <div className="flex items-center justify-start gap-5">
-                                <span>{basketballIcon}</span>
+                            <div className="flex items-center justify-start gap-5 pl-5">
+                                <div className='rounded-3xl bg-[#01010126] p-3'>
+                                    <span>{basketballIcon}</span>
+                                </div>
                                 <p className="text-black text-sm">{sport} Match</p>
                             </div>
-                            <h2 className="text-2xl text-black font-bold">24</h2>
+                            <h2 className="text-2xl text-black font-bold pr-5">24</h2>
                         </div>
                     ))}
                 </div>
 
                 {/* User Profiles */}
                 {[...Array(2)].map((_, idx) => (
-                    <div key={idx} className="border border-[#767E97] rounded-lg px-5 py-4 md:w-[25%] mt-2 bg-[#30333D]">
+                    <div key={idx} className="border border-[#767E97] rounded-lg px-5 py-9 md:w-[35%] mt-2 bg-[#30333D]">
                         <div className="flex items-start justify-between">
                             <div>
                                 <Image
@@ -225,7 +264,7 @@ const Dashboard = () => {
                                 <h1 className="text-[#14AE5C] font-semibold text-xl py-2">Selena John</h1>
                             </div>
                             <div>
-                                <button className="text-[#14AE5C] rounded-3xl bg-[#FFFFFF1A] px-4 py-3">
+                                <button className="text-[#14AE5C] rounded-3xl bg-[#FFFFFF1A] px-7 py-2">
                                     New user
                                 </button>
                             </div>
@@ -245,13 +284,13 @@ const Dashboard = () => {
             </div>
 
             {/* Chart Section */}
-            <div className='md:flex justify-start gap-4 px-5 md:px-10 mt-10'>
+            <div className='md:flex justify-start gap-4 px-5 md:px-10 mt-3'>
                 <div className="bg-[#30333D] p-3 md:p-6 rounded-lg border border-[#767E97] w-full md:w-[60%] mb-5">
                     <h2 className="text-white text-lg font-bold mb-4">Monthly Registered Users</h2>
                     <div className="text-white text-4xl font-semibold mb-4">24000</div>
                     {/* Scrollable container for horizontal scroll */}
                     <div className="overflow-auto">
-                        <div style={{ minWidth: '800px', minHeight:"300px"}}>
+                        <div style={{ minWidth: '800px', minHeight: "300px" }}>
                             <Bar data={barData} options={barOptions} />
                         </div>
                     </div>

@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { dashboardIcons, documentataion, feedbackIcon, matchesIcon, notification, userIcon } from '../resources/icons';
 
 const Sidebar = () => {
-    const pathname = usePathname();
-    const [openMenu, setOpenMenu] = useState(null);  // Track the currently open menu
+    const pathname = usePathname(); // Get the current URL path
+    const [openMenu, setOpenMenu] = useState(null); // Track the currently open menu
 
     const links = [
         { href: '/admin/dashboard', label: 'Dashboard', icon: dashboardIcons },
@@ -23,7 +23,7 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="fixed md:flex h-screen w-[300px] max-w-[339px] flex-col gap-10 rounded-r-[20px] border-r-2 border-black/20 text-white bg-[#313132] px-3 py-6 hidden ">
+        <div className="fixed md:flex h-screen w-[300px] max-w-[339px] flex-col gap-10 rounded-r-[20px] border-r-2 border-black/20 text-white bg-[#313132] px-3 py-6 hidden">
             <Image
                 src="/logo.svg"
                 alt="Logo Image here..."
@@ -33,7 +33,6 @@ const Sidebar = () => {
             />
             <div className="px-4 xl:hidden">
                 <div className="flex w-60 h-12 items-center border rounded-2xl">
-                    {/* <span className="p-3">{searchBarIcon}</span> */}
                     <input
                         type="text"
                         placeholder="Search"
@@ -41,14 +40,14 @@ const Sidebar = () => {
                     />
                 </div>
             </div>
-            <div className="lg:pt-2 ">
+            <div className="lg:pt-2">
                 {links.map((link) => (
                     <Link
                         key={link.href}
                         href={link.href}
-                        className={`relative left-4 flex h-[50px] w-[250px] items-center p-4 gap-4 rounded-lg ${pathname === link.href
-                            ? 'bg-[rgba(255,255,255,0.1)] text-gray-300'
-                            : ''
+                        className={`relative left-4 flex h-[50px] w-[250px] items-center p-4 gap-4 rounded-lg ${pathname.includes(link.href) // Check if the current path includes the link href
+                                ? 'bg-[rgba(255,255,255,0.1)] text-gray-300'
+                                : ''
                             }`}
                     >
                         <span>{link.icon}</span>
@@ -69,7 +68,6 @@ const Sidebar = () => {
                     </span>
                 </button>
             </div>
-
         </div>
     );
 };

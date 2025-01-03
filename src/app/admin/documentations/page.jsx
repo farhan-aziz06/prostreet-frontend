@@ -33,9 +33,9 @@ const Docs = () => {
   };
 
   return (
-    <div className="text-white p-6 mt-10 border rounded-lg bg-[#30333D]">
+    <div className="text-white p-6 px-8 mt-10 border border-[#8B909F] rounded-lg bg-[#30333D]">
       {/* Privacy Policy Section */}
-      <div className="border-b border-gray-700 bg-[#424756] rounded-lg">
+      <div className="border-b pb-7 px-2 pt-3  border-gray-700 bg-[#424756] rounded-lg">
         <div
           className="p-4 flex justify-start items-center gap-5 cursor-pointer"
           onClick={() => toggleSection('privacyPolicy')}
@@ -58,14 +58,14 @@ const Docs = () => {
             )}
             <div className="flex flex-col space-y-4 mt-4">
               <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold"
+                className="bg-[#14AE5C] text-white px-6 py-3 rounded-lg font-semibold"
                 onClick={handleView}
               >
                 View
               </button>
               <label
                 htmlFor="upload-input"
-                className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold cursor-pointer text-center"
+                className="bg-[#14AE5C] text-white px-6 py-3 rounded-lg font-semibold cursor-pointer text-center"
               >
                 Upload Again
                 <input
@@ -77,7 +77,7 @@ const Docs = () => {
                 />
               </label>
               <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold"
+                className="bg-[#14AE5C] text-white px-6 py-3 rounded-lg font-semibold"
                 onClick={handleRemove}
               >
                 Remove
@@ -88,7 +88,7 @@ const Docs = () => {
       </div>
 
       {/* Terms & Conditions Section */}
-      <div className="border-b border-gray-700 bg-[#424756] rounded-lg mt-5">
+      <div className="border-b pb-7 px-2 pt-3  border-gray-700 bg-[#424756] rounded-lg mt-5">
         <div
           className="p-4 flex justify-start items-center gap-5 cursor-pointer"
           onClick={() => toggleSection('termsConditions')}
@@ -104,7 +104,7 @@ const Docs = () => {
       </div>
 
       {/* Community Guidelines Section */}
-      <div className="border-b border-gray-700 bg-[#424756] rounded-lg mt-5">
+      <div className="border-b  pb-7 px-2 pt-3  border-gray-700 bg-[#424756] rounded-lg mt-5">
         <div
           className="p-4 flex justify-start items-center gap-5 cursor-pointer"
           onClick={() => toggleSection('communityGuidelines')}
@@ -120,7 +120,7 @@ const Docs = () => {
       </div>
 
       {/* Liability Waiver Section */}
-      <div className="border-b border-gray-700 bg-[#424756] rounded-lg mt-5">
+      <div className="border-b  pb-7 px-2 pt-3  border-gray-700 bg-[#424756] rounded-lg mt-5">
         <div
           className="p-4 flex justify-start items-center gap-5 cursor-pointer"
           onClick={() => toggleSection('liabilityWaiver')}

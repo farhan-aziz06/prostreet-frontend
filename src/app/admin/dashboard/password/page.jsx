@@ -1,10 +1,10 @@
 'use client'
 import { blockIcons, homeIcon, lockIcon, PasswordIcon, pencilIcon, InfoIcon, userInfoIcon } from '@/components/resources/icons'
 import Topbar from '@/components/topbar'
-import {React, useState} from 'react'
+import { React, useState } from 'react'
 import Image from 'next/image'
 import ProfileImage from './useravatar.png'
-
+import Link from 'next/link'
 const BasicInformation = () => {
     const [formData, setFormData] = useState({
         firstName: "",
@@ -32,7 +32,7 @@ const BasicInformation = () => {
     };
 
     return (
-        <div className="relative bg-[#30333D] border border-[#8B909F] rounded-lg p-6 md:w-[67%] md:ml-[500px] mt-10 text-white">
+        <div className="relative bg-[#30333D] border border-[#8B909F] rounded-lg p-6 mt-10 text-white">
             {/* Section Header */}
             <div className="flex items-center mb-4">
                 <span className="text-green-500 text-xl">{InfoIcon}</span>
@@ -93,33 +93,42 @@ const BasicInformation = () => {
 
 const Profile = () => {
     return (
-        <div className="md:flex items-start justify-start gap-20">
-            <div className='border bg-[#30333D] border-[#8B909F] md:w-[30%] mt-10 rounded-lg'>
-                <div className="flex items-center justify-start gap-5 p-4">
-                    <span>{userInfoIcon}</span>
-                    <h2 className="text-white text-lg font-semibold">Basic Information</h2>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-10 gap-4 mt-10">
+            <div className='col-span-7 md:col-span-3 md:h-[27%] border bg-[#30333D] border-[#8B909F] rounded-lg'>
+                <Link href="/admin/dashboard/personal-information">
+                    <div className="flex items-center justify-start gap-5 p-4">
+                        <span>{userInfoIcon}</span>
+                        <h2 className="text-white text-lg font-semibold">Basic Information</h2>
+                    </div>
+                </Link>
+
                 <div className="flex items-center justify-start gap-5 p-4">
                     <span>{PasswordIcon}</span>
                     <h2 className="text-[#14AE5C] text-lg font-semibold">Password</h2>
                 </div>
             </div>
-            <div className='relative border bg-[#30333D] border-[#8B909F] md:w-[70%] h-[180px] mt-10 rounded-lg'>
-                <div className='absolute border bg-[#14AE5C33] border-[#8B909F] w-full rounded-lg'>
-                    <div className="relative p-4">
-                        <div className="relative inline-block">
-                            <Image
-                                src={ProfileImage}
-                                alt="User Profile"
-                                width={100}
-                                height={100}
-                                className="rounded-full"
-                            />
-                            <button className="absolute top-12 left-10 p-1 rounded-full z-10">
-                                {pencilIcon}
-                            </button>
+            {/* Div 2 (70% width) */}
+            <div className="col-span-7">
+                <div className="relative border bg-[#30333D] border-[#8B909F] h-[180px] rounded-lg">
+                    <div className="absolute border bg-[#14AE5C33] border-[#8B909F] w-full rounded-lg">
+                        <div className="relative p-4">
+                            <div className="relative inline-block">
+                                <Image
+                                    src={ProfileImage}
+                                    alt="User Profile"
+                                    width={100}
+                                    height={100}
+                                    className="rounded-full"
+                                />
+                                <button className="absolute top-12 left-10 p-1 rounded-full z-10">
+                                    {pencilIcon}
+                                </button>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div className="mt-4">
+                    <BasicInformation />
                 </div>
             </div>
         </div>
@@ -130,7 +139,6 @@ const PersonalInformation = () => {
         <div className="px-5 md:px-10 py-5 min-h-screen">
             <Topbar title={"Setting"} icon={blockIcons} button={"Dashboard"} buttonIcon={homeIcon} />
             <Profile />
-            <BasicInformation />
         </div>
     )
 }

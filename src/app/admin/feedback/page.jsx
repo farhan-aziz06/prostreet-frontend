@@ -47,7 +47,7 @@ const Feedback = () => {
   };
 
   return (
-    <div className="text-white p-6 mt-10 border rounded-lg bg-[#30333D] ">
+    <div className="text-white p-6 mt-10 border rounded-xl border-[#8B909F] bg-[#30333D] ">
       <h2 className="text-2xl font-bold mb-6">Feedback</h2>
 
       {/* Feedback List */}
@@ -57,23 +57,24 @@ const Feedback = () => {
             key={index}
             className="bg-[#424756] p-6 rounded-lg flex flex-col"
           >
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col md:flex-row justify-between items-center">
               <div>
-                <p className="text-lg font-semibold mb-2">{feedback.user}</p>
-                <p className="text-sm text-gray-300 mb-2">{feedback.message}</p>
+                <p className="text-lg font-bold mb-2">{feedback.user}</p>
+                <p className="text-lg mb-2">{feedback.message}</p>
+                {feedback.response && (
+                  <div className="text-sm mb-2">
+                    <p className="text-lg "><span className='font-bold'>Response:</span> {feedback.response}</p>
+                  </div>
+                )}
               </div>
               <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold"
+                className="bg-[#14AE5C] text-white px-14 py-3 rounded-lg"
                 onClick={() => openModal(feedback)}
               >
                 Respond
               </button>
             </div>
-            {feedback.response && (
-              <div className="text-sm text-gray-300 mb-2">
-                <p className="text-sm text-white">{feedback.response}</p>
-              </div>
-            )}
+
           </div>
         ))}
       </div>
@@ -103,7 +104,7 @@ const Feedback = () => {
             </div>
             <div className="flex justify-center">
               <button
-                className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold"
+                className="bg-green-500 text-white px-10 py-2 rounded-lg"
                 onClick={handleResponseSubmit}
               >
                 Submit
@@ -119,7 +120,7 @@ const Feedback = () => {
 const Page = () => {
   return (
     <div className="px-10 py-7  min-h-screen">
-    <Topbar title={"Support and Feedback"} icon={blockIcons}/>
+      <Topbar title={"Support and Feedback"} icon={blockIcons} />
       <Feedback />
     </div>
   );

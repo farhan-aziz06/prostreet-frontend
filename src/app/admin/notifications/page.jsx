@@ -29,13 +29,13 @@ const Notifications=()=>{
   return (
     <div className="min-h-screen bg-[#1A1D26] text-white px-5 md:px-10 py-7">
       {/* Header */}
-      <h2 className="text-2xl font-bold mb-6 flex items-center space-x-2">
+      <h2 className="text-2xl font-bold mb-6 gap-4 flex items-center space-x-2">
         <span>{blockIcons}</span>
         <span>Notifications</span>
       </h2>
 
       {/* Notifications List */}
-      <div className="bg-[#30333D] border border-[#8B909F] rounded-lg p-2 md:p-4 space-y-3 md:space-y-7">
+      <div className="bg-[#30333D] border border-[#8B909F] rounded-lg p-2 mt-10 md:p-10 space-y-3 md:space-y-7">
         {notifications.map((notification, index) => (
           <div
             key={index}
@@ -44,13 +44,13 @@ const Notifications=()=>{
             <div className="flex item-start  space-x-7">
               <span className="mt-2 md:0">{ovalIcon}</span>
               <div>
-                <p className="font-bold mt-1 text-xl">{notification.agent}</p>
+                <p className="font-bold pb-4 text-xl">{notification.agent}</p>
                 <p className="text-lg font-medium text-custom-textColor md:w-[60%]">
                   Message: {notification.message}
                 </p>
               </div>
             </div>
-            <div className="bg-gray-700 text-nowrap px-3 py-1 rounded-full text-lg font-semibold">
+            <div className="bg-green-700/20 text-nowrap px-6 py-1 mx-6 rounded-full text-lg font-semibold">
               {notification.time}
             </div>
           </div>

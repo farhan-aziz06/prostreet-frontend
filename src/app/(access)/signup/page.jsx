@@ -8,7 +8,7 @@ export const SignupPage = () => {
     return (
         <div className="flex min-h-screen bg-custom-backgroundColor">
             {/* Left Section */}
-            <div className="flex-1 flex flex-col justify-center items-center p-8 text-white">
+            <div className="flex-1 md:flex flex-col justify-center items-center p-3 md:p-8 text-white">
                 {/* Logo and Title */}
                 <div className="mb-8 text-center">
                     <Image
@@ -21,13 +21,13 @@ export const SignupPage = () => {
                 </div>
 
                 {/* Login Form */}
-                <div className="w-full max-w-xl mt-20 space-y-5 text-center">
+                <div className="w-full max-w-xl mt-10 md:mt-20 space-y-5 text-center">
                     <div>
                         <h1 className="text-4xl font-semibold">Verification Code</h1>
                         <p className="text-lg font-medium">We have sent you a verification code on your give email address and phone number  +92*********</p>
                     </div>
 
-                    <div className="flex justify-center items-center gap-10">
+                    <div className="flex justify-center items-center md:gap-10 gap-5">
                         {Array.from({ length: 4 }).map((_, index) => (
                             <input
                                 key={index}
@@ -51,7 +51,7 @@ export const SignupPage = () => {
                         <a href="#" className="text-lg text-custom-lightGreen">Change Phone Number or Email Address</a>
                         <button
                             type="submit"
-                            className="w-full py-5 bg-custom-buttonColor p-2 mt-10 rounded-2xl text-white text-xl font-semibold focus:outline-none border-none"
+                            className="w-[70%] md:w-full py-5 bg-custom-buttonColor p-2 mt-10 rounded-2xl text-white text-xl font-semibold focus:outline-none border-none"
                         >
                             Confirm
                         </button>

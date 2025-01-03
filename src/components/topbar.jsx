@@ -2,7 +2,7 @@ import React from 'react';
 
 const Topbar = ({ icon, title, buttonIcon, button }) => {
     return (
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between text-white">
             {/* Heading Group: Render only if `title` or `icon` is truthy */}
             {(icon || title) && (
                 <div className="flex items-center gap-5">
