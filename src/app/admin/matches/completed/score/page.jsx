@@ -57,10 +57,12 @@ const MatchDetails = () => {
                         </div>
                         <div>
                             <div className="flex items-center gap-2 pb-4">
-                                <p className="text-xl text-black font-semibold">Preferred Opponent: any</p>
+                                <p className="text-xl text-black font-semibold">Preferred Opponent: </p>
+                                <p className='text-xl text-black '>any</p>
                             </div>
                             <div className="flex items-center gap-2">
-                                <p className="text-xl text-black font-semibold">Preferred Age: any</p>
+                                <p className="text-xl text-black font-semibold">Preferred Age: </p>
+                                <p className='text-xl text-black '>any</p>
                             </div>
                             <div className="py-5 flex">
                                 <div className="">
@@ -130,8 +132,6 @@ const MatchDetails = () => {
                         </div>
                     ))}
                 </div>
-
-
                 {/* Match Results Section */}
                 <div className="p-6 md:px-20  md:ml-0">
                     <h3 className="text-white text-2xl font-semibold mb-4">Match Results</h3>

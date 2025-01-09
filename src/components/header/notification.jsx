@@ -43,7 +43,7 @@ export default function Notifications() {
 
                             {/* Time */}
                             <div className="ml-auto">
-                                <span className="px-3 py-1 text-sm text-[#FE5578] rounded-2xl">
+                                <span className="px-3 py-1 text-sm bg-[#F31E0A1A] text-[#FE5578] rounded-2xl">
                                     {notification.time}
                                 </span>
                             </div>

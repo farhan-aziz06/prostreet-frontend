@@ -52,7 +52,7 @@ const EditUserModal = ({ user, onClose, onSave }) => {
           </div>
           {/* Registration Date */}
           <div className="flex flex-col md:flex-row items-center gap-4">
-            <label className="text-lg font-semibold text-white w-full md:w-1/4 text-nowrap">Registration Date</label>
+            <label className="text-lg font-semibold text-white w-full md:w-1/4">Registration Date</label>
             <input
               type="text"
               name="registrationDate"
@@ -174,13 +174,13 @@ const User = () => {
           <table className="w-full text-sm text-left text-white">
             <thead className="bg-[#14AE5C] text-white">
               <tr>
-                <th className="px-10 py-5 text-center">User ID</th>
-                <th className="px-10 py-5 text-center">Registered No</th>
-                <th className="px-10 py-5 text-center">Name</th>
-                <th className="px-10 py-5 text-center">Gender</th>
-                <th className="px-10 py-5 text-center">Email</th>
-                <th className="px-10 py-5 text-center">Age</th>
-                <th className="px-10 py-5 text-center">ACTIONS</th>
+                <th className="px-10 py-5 text-center uppercase">User ID</th>
+                <th className="px-10 py-5 text-center uppercase">Registered No</th>
+                <th className="px-10 py-5 text-center uppercase">Name</th>
+                <th className="px-10 py-5 text-center uppercase">Gender</th>
+                <th className="px-10 py-5 text-center uppercase">Email</th>
+                <th className="px-10 py-5 text-center uppercase">Age</th>
+                <th className="px-10 py-5 text-center uppercase">ACTIONS</th>
               </tr>
             </thead>
             <tbody>
@@ -222,7 +222,7 @@ const User = () => {
       {showDeleteModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
           <div className="bg-[#222530] p-6 md:py-16 rounded-lg shadow-lg md:w-[40%] m-5 text-center border border-[#4F4E4E]">
-            <h2 className="text-lg font-semibold mb-4">Do you really want to delete this item?</h2>
+            <h2 className="text-lg text-white font-semibold mb-4">Do you really want to delete this User?</h2>
             <p className="text-sm font-medium mb-2 text-[#FFFFFF99]">User deleted once csn not be restored again. Are you sure you want to delete this?</p>
             <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
               <button

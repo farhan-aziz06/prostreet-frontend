@@ -52,7 +52,7 @@ const User = () => {
 
   const handleOrganizedOptionClick = (option) => {
     console.log(`Selected option: ${option}`);
-    setShowOrganizedDropdown(false); // Hide dropdown
+    setShowOrganizedDropdown(false);
   };
 
   return (
@@ -63,7 +63,7 @@ const User = () => {
       <div className="border mt-10 rounded-lg bg-[#30333D]">
         {/* Search and Filters */}
         <div className="px-4 md:px-10 py-4 md:flex items-center justify-between ">
-          <h2 className="text-lg font-medium mb-4 text-white">Information</h2>
+          <h2 className="text-lg font-medium mb-4 text-white">Organized</h2>
           <div className="flex items-center gap-14 md:gap-4">
             {/* Search Input */}
             <div className="hidden md:flex items-center md:w-96 border rounded-md">
@@ -123,26 +123,26 @@ const User = () => {
           <table className="w-full text-sm text-left text-white">
             <thead className="bg-[#14AE5C] text-white">
               <tr>
-                <th className="px-10 py-5 text-center">Match ID</th>
-                <th className="px-10 py-5 text-center">TYPE</th>
-                <th className="px-10 py-5 text-center">Organizer</th>
-               <th className="px-10 py-5 text-center text-nowrap">DATE & TIME</th>
-                <th className="px-10 py-5 text-center">LOCATION</th>
-                <th className="px-10 py-5 text-center">STATUS</th>
-                <th className="px-10 py-5 text-center">ACTIONS</th>
+                <th className="px-6 py-4 text-center">Match ID</th>
+                <th className="px-6 py-4 text-center">TYPE</th>
+                <th className="px-6 py-4 text-center">Organizer</th>
+                <th className="px-6 py-4 text-center text-nowrap">DATE & TIME</th>
+                <th className="px-6 py-4 text-center">LOCATION</th>
+                <th className="px-6 py-4 text-center">STATUS</th>
+                <th className="px-6 py-4 text-center">ACTIONS</th>
               </tr>
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr key={user.sl}>
-                  <td className="px-10 py-5 text-center">{user.sl}</td>
-                  <td className="px-10 py-5 text-center">{user.type}</td>
-                  <td className="px-10 py-5 text-center">{user.loc}</td>
-                  <td className="px-10 py-5 text-center text-nowrap">{user.date}</td>
-                  <td className="px-10 py-5 text-center">{user.slot}</td>
-                  <td className="px-10 py-5 text-center">
+                <tr key={user.sl} className="text-center">
+                  <td className="px-6 py-4">{user.sl}</td>
+                  <td className="px-6 py-4">{user.type}</td>
+                  <td className="px-6 py-4">{user.loc}</td>
+                  <td className="px-6 py-4 text-nowrap">{user.date}</td>
+                  <td className="px-6 py-4">{user.slot}</td>
+                  <td className="px-6 py-4">
                     <span
-                      className={`px-8 py-2 text-center rounded-full ${user.status === "Open"
+                      className={`px-8 py-2 rounded-full ${user.status === "Open"
                         ? "bg-[#44DD261A] text-[#44DD26]"
                         : "bg-[#F31E0A1A] text-[#F31E0A]"
                         }`}
@@ -150,7 +150,7 @@ const User = () => {
                       {user.status}
                     </span>
                   </td>
-                  <td className="px-10 py-10 md:py-5 text-center flex">
+                  <td className="px-6 py-4 flex justify-center gap-2">
                     <Link href={"/admin/matches/view"}>
                       <button className="p-1 rounded text-gray-900">{eyeIcon}</button>
                     </Link>
@@ -172,6 +172,7 @@ const User = () => {
             </tbody>
           </table>
         </div>
+
       </div>
       {showDeleteModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
@@ -210,12 +211,9 @@ const User = () => {
               <form className="space-y-1 md:space-y-4 border-t border-[#E8E8E833] pt-2 md:pt-10 px-3 md:px-10">
                 {[
                   { label: "Sports Type", placeholder: "Enter sports type" },
-                  { label: "Time", placeholder: "Enter time" },
                   { label: "Location", placeholder: "Enter location" },
                   { label: "Max Players", placeholder: "Enter max players" },
                   { label: "Opponent Age", placeholder: "Enter opponent age" },
-                  { label: "Opponent Gender", placeholder: "Enter opponent gender" },
-                  { label: "Time Flexibility", placeholder: "Enter time flexibility" },
                   { label: "Description", placeholder: "Enter description" },
                 ].map((field, index) => (
                   <div
@@ -232,21 +230,65 @@ const User = () => {
                     />
                   </div>
                 ))}
+                {/* Opponent Gender as Dropdown */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <label className="md:w-1/3 text-lg font-semibold text-white text-nowrap">
+                    Opponent Gender
+                  </label>
+                  <select
+                    className="w-full md:w-2/3 p-2 bg-gray-700 rounded border border-gray-600 text-white"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Select opponent gender
+                    </option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="any">Any</option>
+                  </select>
+                </div>
+                {/* Time Flexibility */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <label className="md:w-1/3 text-lg font-semibold text-white text-nowrap">
+                    Time Flexibility
+                  </label>
+                  <input
+                    type="time"
+                    className="w-full md:w-2/3 p-2 bg-gray-700 rounded border border-gray-600 text-white"
+                    placeholder="Enter time"
+                  />
+                </div>
+                {/* Updated Time Field */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <label className="md:w-1/3 text-lg font-semibold text-white text-nowrap">
+                    Time
+                  </label>
+                  <input
+                    type="time"
+                    className="w-full md:w-2/3 p-2 bg-gray-700 rounded border border-gray-600 text-white"
+                    placeholder="Enter time"
+                  />
+                </div>
                 {/* Game Open Toggle */}
                 <div className="flex items-center justify-start gap-4">
-                  <label className="md:w-1/3 text-lg font-semibold text-white text-nowrap">Game Open</label>
+                  <label className="md:w-1/3 text-lg font-semibold text-white text-nowrap">
+                    Game Open
+                  </label>
                   <button
                     type="button"
                     onClick={handleToggle}
-                    className={`w-14 flex items-center bg-gray-600 rounded-full p-1 ${gameOpen ? "bg-green-400" : "bg-gray-600"}`}
+                    className={`w-14 flex items-center bg-gray-600 rounded-full p-1 ${gameOpen ? "bg-green-400" : "bg-gray-600"
+                      }`}
                   >
                     <div
-                      className={`bg-white w-6 h-5 rounded-full shadow-md transform ${gameOpen ? "translate-x-full" : "translate-x-0"}`}
+                      className={`bg-white w-6 h-5 rounded-full shadow-md transform ${gameOpen ? "translate-x-full" : "translate-x-0"
+                        }`}
                     ></div>
                   </button>
                 </div>
               </form>
             </div>
+
             {/* Buttons */}
             <div className="flex flex-col md:flex-row gap-4 justify-center md:mt-6">
               <button
@@ -265,7 +307,7 @@ const User = () => {
             </div>
           </div>
         </div>
-      )}       
+      )}
     </div>
   );
 };

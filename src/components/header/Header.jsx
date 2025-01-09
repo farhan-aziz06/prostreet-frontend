@@ -27,44 +27,37 @@ const Header = () => {
                 >
                     {notificationIcon}
                 </button>
-                <button
-                    className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500/20 hover:text-black "
-                    aria-label="Settings"
-                >
-                    {settingsIcon}
-                </button>
-            </div>
-
-            {/* Settings Button */}
-
-
-            {/* Profile Section */}
-            <div className="flex items-center border-l border-[#D6D6D666] px-5 ml-5 md:ml-0">
                 <Link href="/admin/dashboard/personal-information">
                     <button
-                        className="flex items-center space-x-3 focus:outline-none"
-                        aria-label="Profile"
-                    >
-                        <Image
-                            src={UserAvatar}
-                            alt="Profile"
-                            width={50}
-                            height={50}
-                            className="rounded-full"
-                        />
-                        <div className="text-left">
-                            <p className="font-medium">Jhon Doe</p>
-                            <p className="text-sm text-gray-400">admin@admin.com</p>
-                        </div>
+                        className="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 hover:bg-green-500/20 hover:text-black "
+                        aria-label="Settings"
+>
+                        {settingsIcon}
                     </button>
                 </Link>
             </div>
-
+            <div className="flex items-center border-l border-[#D6D6D666] px-5 ml-5 md:ml-0">
+                <button
+                    className="flex items-center space-x-3 focus:outline-none"
+                    aria-label="Profile"
+                >
+                    <Image
+                        src={UserAvatar}
+                        alt="Profile"
+                        width={50}
+                        height={50}
+                        className="rounded-full"
+                    />
+                    <div className="text-left">
+                        <p className="font-medium">Jhon Doe</p>
+                        <p className="text-sm text-gray-400">admin@admin.com</p>
+                    </div>
+                </button>
+            </div>
             {/* Overlay with Blur Background */}
             {showNotifications && (
                 <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm" onClick={() => setShowNotifications(false)}></div>
             )}
-
             {/* Notification Bar */}
             {showNotifications && (
                 <div className="absolute top-16 right-6 z-50">

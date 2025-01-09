@@ -31,7 +31,7 @@ const EditUserModal = ({ user, onClose, onSave }) => {
                 <form className="space-y-6 border-t border-[#E8E8E833] py-5">
                     {/* Name */}
                     <div className="flex flex-col md:flex-row items-center gap-4">
-                        <label className="text-sm text-gray-300 w-full md:w-1/4">Name</label>
+                        <label className="text-lg font-semibold text-white w-full md:w-1/4">Name</label>
                         <input
                             type="text"
                             name="name"
@@ -89,25 +89,25 @@ const EditUserModal = ({ user, onClose, onSave }) => {
                             placeholder="Enter email"
                         />
                     </div>
-                    
+
                 </form>
                 {/* Buttons */}
                 <div className="flex gap-4 justify-center mt-12">
-                        <button
-                            type="button"
-                            className="bg-[#14AE5C] px-20 py-3 rounded-lg text-white"
-                            onClick={handleSave}
-                        >
-                            Save
-                        </button>
-                        <button
-                            type="button"
-                            className="bg-red-600 px-20 py-3 rounded-lg text-white"
-                            onClick={onClose}
-                        >
-                            Cancel
-                        </button>
-                    </div>
+                    <button
+                        type="button"
+                        className="bg-[#14AE5C] px-20 py-3 rounded-lg text-white"
+                        onClick={handleSave}
+                    >
+                        Save
+                    </button>
+                    <button
+                        type="button"
+                        className="bg-red-600 px-20 py-3 rounded-lg text-white"
+                        onClick={onClose}
+                    >
+                        Cancel
+                    </button>
+                </div>
             </div>
         </div>
     );
@@ -251,7 +251,7 @@ const ProfileTable = () => {
                             <th className="px-10 py-5 text-center">SL</th>
                             <th className="px-10 py-5 text-center">TYPE</th>
                             <th className="px-10 py-5 text-center">LOCATION</th>
-                           <th className="px-10 py-5 text-center text-nowrap">DATE & TIME</th>
+                            <th className="px-10 py-5 text-center text-nowrap">DATE & TIME</th>
                             <th className="px-10 py-5 text-center">SLOT AVILABLE</th>
                             <th className="px-10 py-5 text-center">STATUS</th>
                             <th className="px-10 py-5 text-center">ACTIONS</th>

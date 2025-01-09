@@ -1,11 +1,11 @@
 'use client'
-import { blockIcons, homeIcon, lockIcon, PasswordIcon, pencilIcon, InfoIcon, userInfoIcon } from '@/components/resources/icons'
+import { blockIcons, homeIcon, lockIcon, PasswordIcon, pencilIcon, InfoIcon, userInfoIcon, infoIcon } from '@/components/resources/icons'
 import Topbar from '@/components/topbar'
 import { React, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import ProfileImage from './useravatar.png'
-
+import infoSvg from '../Vector.svg'
 const BasicInformation = () => {
     const [formData, setFormData] = useState({
         firstName: "",
@@ -35,86 +35,88 @@ const BasicInformation = () => {
     return (
         <div className="relative bg-[#30333D] border border-[#8B909F] rounded-lg p-6 mt-10 text-white">
             {/* Section Header */}
-            <div className="flex items-center mb-4">
-                <span className="text-green-500 text-xl">{InfoIcon}</span>
+            <div className="flex items-center mb-4 px-3">
+                <span className="px-2">{infoIcon}</span>
                 <h2 className="ml-2 text-lg font-bold">Basic Information</h2>
             </div>
             <hr className="border-gray-700 mb-6" />
 
             {/* Full Name */}
-            <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">
-                    Full Name
-                    <span className="ml-2 text-gray-400">{InfoIcon}</span>
-                </label>
-                <div className="grid grid-cols-2 gap-4">
+            <div className="px-4">
+                <div className="mb-6 flex justify-between">
+                    <label className="block text-lg font-medium mb-2">
+                        Full Name
+                    </label>
+                    <div className="grid grid-cols-2 gap-4 w-[70%]">
+                        <input
+                            type="text"
+                            name="firstName"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            className="bg-[#30333D] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 outline-none"
+                            placeholder="Michael"
+                        />
+                        <input
+                            type="text"
+                            name="lastName"
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            className="bg-[#30333D] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 outline-none"
+                            placeholder="Stirling"
+                        />
+                    </div>
+                </div>
+
+                {/* Phone */}
+                <div className="mb-6 flex justify-between">
+                    <label className="block text-lg font-medium mb-2">
+                        Phone <span className="px-1">(Compulsory)</span>
+                    </label>
                     <input
                         type="text"
-                        name="firstName"
-                        value={formData.firstName}
+                        name="phone"
+                        value={formData.phone}
                         onChange={handleChange}
-                        className="bg-[#424756] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 outline-none"
-                        placeholder="Michael"
-                    />
-                    <input
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        className="bg-[#424756] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 outline-none"
-                        placeholder="Stirling"
+                        className="bg-[#30333D] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 w-[70%] outline-none"
+                        placeholder="+92 325 3545 34534"
                     />
                 </div>
-            </div>
 
-            {/* Phone */}
-            <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">
-                    Phone <span className="text-green-500">(Compulsory)</span>
-                </label>
-                <input
-                    type="text"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="bg-[#424756] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 w-full outline-none"
-                    placeholder="+92 325 3545 34534"
-                />
-            </div>
-
-            {/* Email */}
-            <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">
-                    Email <span className="text-green-500">(Compulsory)</span>
-                </label>
-                <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="bg-[#424756] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 w-full outline-none"
-                    placeholder="loremipsum@gmail.com"
-                />
+                {/* Email */}
+                <div className="mb-6 flex justify-between">
+                    <label className="block text-lg font-medium mb-2">
+                        Email <span className="px-1">(Compulsory)</span>
+                    </label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="bg-[#30333D] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 w-[70%] outline-none"
+                        placeholder="loremipsum@gmail.com"
+                    />
+                </div>
             </div>
 
             {/* Update Button */}
             <div className="flex justify-end">
                 <button
                     onClick={handleUpdate}
-                    className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold"
+                    className="bg-[#14AE5C] text-white px-9 py-3 rounded-lg font-semibold"
                 >
                     Update
                 </button>
             </div>
         </div>
+
     );
 };
 
 const Profile = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-10 gap-4 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-10 gap-8 mt-10">
             {/* Div 1 (30% width) */}
-            <div className="col-span-7 md:col-span-3 md:h-[27%] border bg-[#30333D] border-[#8B909F] rounded-lg">
+            <div className="col-span-7 md:col-span-3 md:h-[24%] border bg-[#30333D] border-[#8B909F] rounded-lg">
                 <div>
                     <div className="flex items-center justify-start gap-5 p-4">
                         <span>{userInfoIcon}</span>
@@ -134,7 +136,7 @@ const Profile = () => {
                 <div className="relative border bg-[#30333D] border-[#8B909F] h-[180px] rounded-lg">
                     <div className="absolute border bg-[#14AE5C33] border-[#8B909F] w-full rounded-lg">
                         <div className="relative p-4">
-                            <div className="relative inline-block">
+                            <div className="relative inline-block top-12 left-6">
                                 <Image
                                     src={ProfileImage}
                                     alt="User Profile"
@@ -160,7 +162,7 @@ const Profile = () => {
 const PersonalInformation = () => {
     return (
         <div className="px-5 md:px-10 py-7 min-h-screen">
-            <Topbar title={"Setting"} icon={blockIcons} button={"Dashboard"} buttonIcon={homeIcon} />
+            <Topbar title={"Setting"} icon={blockIcons} button={"Dashboard"} buttonIcon={homeIcon} href="/admin/dashboard" />
             <Profile />
 
         </div>
