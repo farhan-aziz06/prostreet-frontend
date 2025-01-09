@@ -58,7 +58,7 @@ const Feedback = () => {
     };
 
     return (
-        <div className="text-white p-6 mt-10 border rounded-xl border-[#8B909F] bg-[#30333D] ">
+        <div className="text-white p-6 mt-2 border rounded-xl border-[#8B909F] bg-[#30333D] ">
             <div className="flex items-center justify-start gap-3 mb-6 p-6 border-b border-[#E4E4E466]">
                 <span className=''>{startFeedbackIcon}</span>
                 <h2 className="text-2xl font-bold ">Recent Feedback</h2>

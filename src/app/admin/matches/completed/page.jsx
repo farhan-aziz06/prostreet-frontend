@@ -124,24 +124,24 @@ const User = () => {
                     <table className="w-full text-sm text-left text-gray-400">
                         <thead className="bg-[#14AE5C] text-white">
                             <tr>
-                                <th className="px-10 py-5 text-center">Match ID</th>
-                                <th className="px-10 py-5 text-center">TYPE</th>
-                                <th className="px-10 py-5 text-center">Organizer</th>
-                                <th className="px-10 py-5 text-center text-nowrap">DATE & TIME</th>
-                                <th className="px-10 py-5 text-center">LOCATION</th>
-                                <th className="px-10 py-5 text-center">STATUS</th>
-                                <th className="px-10 py-5 text-center">ACTIONS</th>
+                                <th className="px-10 py-5 text-center uppercase">Match ID</th>
+                                <th className="px-10 py-5 text-center uppercase">TYPE</th>
+                                <th className="px-10 py-5 text-center uppercase">Organizer</th>
+                                <th className="px-10 py-5 text-center uppercase text-nowrap">DATE & TIME</th>
+                                <th className="px-10 py-5 text-center uppercase">LOCATION</th>
+                                <th className="px-10 py-5 text-center uppercase">STATUS</th>
+                                <th className="px-10 py-5 text-center uppercase">ACTIONS</th>
                             </tr>
                         </thead>
                         <tbody>
                             {users.map((user) => (
-                                <tr key={user.sl}>
-                                    <td className="px-10 py-5 text-center">{user.sl}</td>
-                                    <td className="px-10 py-5 text-center">{user.type}</td>
-                                    <td className="px-10 py-5 text-center">{user.loc}</td>
-                                    <td className="px-10 py-5 text-center text-nowrap">{user.date}</td>
-                                    <td className="px-10 py-5 text-center">{user.slot}</td>
-                                    <td className="px-10 py-5 text-center">
+                                <tr key={user.sl} className="text-center">
+                                    <td className="px-10 py-5">{user.sl}</td>
+                                    <td className="px-10 py-5">{user.type}</td>
+                                    <td className="px-10 py-5">{user.loc}</td>
+                                    <td className="px-10 py-5 text-nowrap">{user.date}</td>
+                                    <td className="px-10 py-5">{user.slot}</td>
+                                    <td className="px-10 py-5">
                                         <span
                                             className={`p-2 rounded-full ${user.status === "Open"
                                                 ? "bg-green-200 text-green-900"
@@ -153,7 +153,7 @@ const User = () => {
                                             {user.status}
                                         </span>
                                     </td>
-                                    <td className="px-10 py-10 md:py-5 text-center flex gap-2">
+                                    <td className="px-10 py-10 md:py-5 flex justify-center gap-2">
                                         <Link href={"/admin/matches/completed/score"}>
                                             <button className="p-1 rounded text-gray-900">{eyeIcon}</button>
                                         </Link>
@@ -176,6 +176,7 @@ const User = () => {
                         </tbody>
                     </table>
                 </div>
+
             </div>
 
             {/* Edit Match Modal */}

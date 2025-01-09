@@ -1,26 +1,27 @@
 'use client';
-
 import { calenderIcon, joinedIcon, locIcon, slotIcon } from '@/components/resources/icons';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import PlayerProfile from './player profile.png'
+import PlayerProfile from './player profile.png';
+
 const MatchDetails = () => {
     const [rating, setRating] = useState(0);
     const [selectedTab, setSelectedTab] = useState("Players");
     const [ratings, setRatings] = useState([0, 0, 0]);
+
     const handleRating = (playerIndex, index) => {
         const updatedRatings = [...ratings];
         updatedRatings[playerIndex] = index + 1;
         setRatings(updatedRatings);
-    }
+    };
 
     return (
-        <div className="bg-[#1A1D26] flex items-center justify-center p-6">
+        <div className="bg-[#1A1D26] flex items-center justify-center p-6 min-h-screen">
             <div className="w-full bg-[#30333D] border border-[#8B909F] rounded-lg shadow-lg">
                 {/* Match Details Section */}
                 <div className="bg-[#FF8E4F] m-2 md:m-8 py-6 rounded-lg relative">
-                    <div className=" pb-5 md:pb-20 flex flex-col">
+                    <div className="pb-5 md:pb-20 flex flex-col">
                         <h2 className="text-xl font-semibold text-black md:text-center px-3">Match Details</h2>
                         <p className="text-sm text-black mt-1 md:text-center px-3 py-2">Here are some details of the match selected</p>
                         <span className="absolute top-6 right-6 px-10 text-[#244AAD] font-semibold cursor-pointer">Game Open</span>
@@ -83,53 +84,108 @@ const MatchDetails = () => {
                         </span>
                     </div>
                 </div>
-                {/* Profile Rating */}
-                <div className="p-6 rounded-b-lg md:px-96 flex flex-col md:flex-row justify-start md:justify-center md:ml-0 gap-4">
-                    {[0, 1, 2].map((playerIndex) => (
-                        <div
-                            key={playerIndex}
-                            className="w-full md:w-auto flex flex-col items-center "
-                        >
-                            <div className="relative w-24 h-24  rounded-full overflow-hidden border border-gray-300">
-                                <Image
-                                    src={PlayerProfile} // Replace with actual image path
-                                    alt="User"
-                                    className="w-full h-full object-cover"
+                {/* Profile Rating - Only shown for "Players" tab */}
+                {selectedTab === "Players" && (
+                    <>
+
+
+                        <div className="p-6 rounded-b-lg md:px-96 flex flex-col md:flex-row justify-start md:justify-center md:ml-0 gap-16">
+                            {[0, 1, 2].map((playerIndex) => (
+                                <div
+                                    key={playerIndex}
+                                    className="w-full md:w-auto flex flex-col items-center "
+                                >
+                                    <div className="relative w-24 h-24  rounded-full overflow-hidden border border-gray-300">
+                                        <Image
+                                            src={PlayerProfile} // Replace with actual image path
+                                            alt="User"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="flex flex-col items-center mt-2">
+                                        <p className="text-white text-center text-lg font-semibold">
+                                            Player {playerIndex + 1}
+                                        </p>
+                                        <div className="flex items-center mt-2">
+                                            {[...Array(5)].map((_, index) => (
+                                                <span
+                                                    key={index}
+                                                    className={`cursor-pointer text-2xl ${index < ratings[playerIndex] ? "text-yellow-500" : "text-gray-400"
+                                                        }`}
+                                                    onClick={() => handleRating(playerIndex, index)} // Pass playerIndex
+                                                >
+                                                    ★
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <button className="bg-[#787F99] rounded-3xl mt-2 text-white px-7 py-2 text-md font-medium">
+                                        Remove
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="flex flex-col items-center md:ml-auto md:flex-row md:justify-end">
+                            <Link href={"/admin/matches/organized/match/edit"}>
+                                <button className="bg-[#14AE5C] text-white px-24 py-3 m-5 rounded-xl text-lg">
+                                    Save
+                                </button>
+                            </Link>
+                        </div>
+                    </>
+                )}
+                {/* Discussion - Only shown for "Discussion" tab */}
+                {selectedTab === "Discussion" && (
+                    <div className="py-6 rounded-b-lg px-5 md:px-10 ">
+                        <h3 className="text-xl font-semibold text-white">Comments & Discussion</h3>
+                        <p className="text-md text-[#D7DAE2] mt-1">
+                            <span className="text-xl font-bold pr-1">48</span> Comments
+                        </p>
+                        {/* Comment */}
+                        <div className="mt-6 md:w-[70%]">
+                            <div className="flex items-start gap-2 md:gap-4">
+                                {/* Responsive image container */}
+                                <div className="w-24 md:w-10 md:h-10 bg-gray-600 rounded-full overflow-hidden">
+                                    <Image
+                                        src={PlayerProfile} // Replace with actual image path
+                                        alt="Avatar"
+                                        className="w-full h-full"
+                                    />
+                                </div>
+                                <div>
+                                    <p className="text-white text-lg font-semibold">Irfan</p>
+                                    <p className="text-white text-xs md:text-sm mt-1">
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    </p>
+                                    <div className="text-[#787F99] flex items-center gap-3 text-md mt-2 cursor-pointer">
+                                        <span className="font-semibold text-nowrap">View all comments</span>
+                                        <span className="font-semibold">&gt;</span>
+                                    </div>
+                                </div>
+                                <p className="text-[#D7DAE2] text-xs text-nowrap ml-auto">1 Month ago</p>
+                            </div>
+                        </div>
+                        {/* Write Comment */}
+                        <div className="flex items-center gap-5">
+                            <div className="flex items-center border rounded-3xl mt-6 w-[64%]">
+                                <input
+                                    type="text"
+                                    className="flex-grow bg-transparent text-gray-300 px-3 md:px-8 py-3 md:py-4 rounded-lg outline-none text-sm placeholder-gray-500"
+                                    placeholder="Write comment"
                                 />
                             </div>
-                            <div className="flex flex-col items-center mt-2">
-                                <p className="text-white text-center text-lg font-semibold">
-                                    Player {playerIndex + 1}
-                                </p>
-                                <div className="flex items-center mt-2">
-                                    {[...Array(5)].map((_, index) => (
-                                        <span
-                                            key={index}
-                                            className={`cursor-pointer text-2xl ${index < ratings[playerIndex] ? "text-yellow-500" : "text-gray-400"
-                                                }`}
-                                            onClick={() => handleRating(playerIndex, index)} // Pass playerIndex
-                                        >
-                                            ★
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                            <button className="bg-[#787F99] rounded-3xl mt-2 text-white px-7 py-2 text-md font-medium">
-                                Remove
+                            <button
+                                className="bg-[#787F99] rounded-3xl mt-6 text-white px-3 md:px-8 py-3 md:py-4 text-md font-medium"
+                            >
+                                Send
                             </button>
                         </div>
-                    ))}
-                </div>
+                    </div>
+                )}
 
-                <div className="flex flex-col items-center md:justify-end">
-                    <Link href={"/admin/matches/organized/match/edit"}>
-                        <button className="bg-[#14AE5C] text-white px-24 py-3 m-5 rounded-xl text-lg">
-                            Save
-                        </button>
-                    </Link>
-                </div>
+
             </div>
-        </div >
+        </div>
     );
 };
 
