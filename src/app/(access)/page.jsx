@@ -46,7 +46,8 @@ export const LoginPage = () => {
               >
                 Password
               </label>
-              <div className="border p-2 rounded-2xl">
+              <div className="flex items-center gap-4 border p-2 rounded-2xl">
+                <label className="pt-2 pl-4">{lockIcon}</label>
                 <input
                   type="password"
                   id="email"
