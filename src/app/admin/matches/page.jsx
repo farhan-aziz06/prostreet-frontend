@@ -60,11 +60,11 @@ const User = () => {
       {/* Topbar */}
       <Topbar icon={blockIcons} title="Matches List" />
 
-      <div className="border border-[#8B909F] mt-10 rounded-lg bg-[#30333D]  overflow-x-auto ">
+      <div className="border border-[#8B909F] mt-10 rounded-lg bg-[#30333D] overflow-x-auto">
         {/* Search and Filters */}
         <div className="px-4 md:px-10 py-4 flex items-center justify-between gap-20">
           <h2 className="text-lg font-medium mb-4 text-white">Organized</h2>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 pr-20">
             {/* Search Input */}
             <div className="flex items-center w-96 border rounded-md">
               <input
@@ -80,7 +80,7 @@ const User = () => {
             {/* Organized Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center justify-betwee gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md"
+                className="flex items-center justify-between gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md"
                 onClick={toggleOrganizedDropdown}
               >
                 <span className="text-[#14AE5C] text-lg">Organized</span>
@@ -111,7 +111,7 @@ const User = () => {
             </div>
 
             {/* Sport Type Selector */}
-            <button className="flex items-center justify-betwee gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md">
+            <button className="flex items-center justify-between gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md">
               <span className="text-[#14AE5C] text-nowrap text-lg">Sport Type</span>
               <span>{dropdown}</span>
             </button>
@@ -143,8 +143,8 @@ const User = () => {
                   <td className="px-6 py-4">
                     <span
                       className={`px-8 py-2 rounded-full ${user.status === "Open"
-                        ? "bg-[#44DD261A] text-[#44DD26]"
-                        : "bg-[#F31E0A1A] text-[#F31E0A]"
+                          ? "bg-[#44DD261A] text-[#44DD26]"
+                          : "bg-[#F31E0A1A] text-[#F31E0A]"
                         }`}
                     >
                       {user.status}
@@ -172,7 +172,6 @@ const User = () => {
             </tbody>
           </table>
         </div>
-
       </div>
       {showDeleteModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">

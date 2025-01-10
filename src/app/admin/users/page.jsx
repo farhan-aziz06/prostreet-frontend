@@ -151,25 +151,25 @@ const User = () => {
 
       <div className="border border-[#8B909F] mt-10 rounded-lg bg-[#30333D]">
         <div className="p-5 xl:flex items-center justify-between">
-          <div className='flex items-center justify-between md:px-8'>
+          <div className='flex items-center justify-between xl:px-8'>
             <h2 className="text-lg font-medium text-white ">Information</h2>
             <button className="lg:hidden flex items-center text-sky-100 gap-4 px-2 md:px-7 py-2 md:py-2.5 text-sm font-medium bg-transparent border border-green-700 rounded-md">
               <span className="text-[#14AE5C] text-lg text-nowrap">Select Date</span>
               <span>{dropdown}</span>
             </button>
           </div>
-          <div className="md:flex items-center justify-between md:justify-start gap-4 mt-3 xl:mt-0 md:px-8">
-            <div className="flex items-center w-full lg:w-96 border rounded-md">
+          <div className="flex items-center justify-between md:justify-start gap-4 mt-3 xl:mt-0 xl:px-8">
+            <div className="flex items-center w-full xl:w-96 border rounded-md">
               <input
                 type="text"
                 placeholder="Search Ex: (User ID, Name, Email)"
                 className="flex w-full px-5 py-2 text-gray-300 text-lg bg-transparent outline-none"
               />
-              <button className="p-2 md:px-4 py-3.5 text-gray-300 bg-green-600 hover:text-white rounded-r-md md:border-l">
+              <button className="px-4 py-3.5 text-gray-300 bg-green-600 hover:text-white rounded-r-md md:border-l">
                 {searchIcon}
               </button>
             </div>
-            <button className="hidden lg:flex items-center text-sky-100 gap-4 px-2 md:px-7 py-2 md:py-2.5 text-sm font-medium bg-transparent border border-green-700 rounded-md">
+            <button className="hidden lg:flex items-center text-sky-100 gap-4 px-7 py-2.5 text-sm font-medium bg-transparent border border-green-700 rounded-md">
               <span className="text-[#14AE5C] text-lg text-nowrap">Select Date</span>
               <span>{dropdown}</span>
             </button>
