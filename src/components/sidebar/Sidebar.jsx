@@ -56,7 +56,7 @@ const Sidebar = () => {
                     </Link>
                 ))}
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-3">
                 <button className="flex flex-col items-center relative top-64">
                     <Image
                         src="/logo2.svg"
