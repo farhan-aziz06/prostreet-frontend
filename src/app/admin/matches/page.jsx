@@ -60,13 +60,54 @@ const User = () => {
       {/* Topbar */}
       <Topbar icon={blockIcons} title="Matches List" />
 
-      <div className="border border-[#8B909F] mt-10 rounded-lg bg-[#30333D] overflow-x-auto">
+      <div className="border border-[#8B909F] mt-10 rounded-lg bg-[#30333D]">
         {/* Search and Filters */}
-        <div className="px-4 md:px-10 py-4 flex items-center justify-between gap-20">
-          <h2 className="text-lg font-medium mb-4 text-white">Organized</h2>
-          <div className="flex items-center gap-4 pr-20">
+        <div className="py-4 2xl:flex items-center justify-between gap-20">
+          <div className='lg:flex items-center justify-between gap-5 px-8'>
+            <h2 className="text-lg font-medium mb-4 text-white">Organized</h2>
+            <div className='xl:hidden flex items-center gap-2 mb-5'>
+              {/* Organized Dropdown */}
+              <div className="relative">
+                <button
+                  className="flex items-center justify-between gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md"
+                  onClick={toggleOrganizedDropdown}
+                >
+                  <span className="text-[#14AE5C] text-lg">Organized</span>
+                  <span>{dropdown}</span>
+                </button>
+                {showOrganizedDropdown && (
+                  <div className="absolute mt-2 bg-[#1A1D26] border border-gray-700 rounded-lg w-48 shadow-lg">
+                    <ul className="py-2">
+                      <Link href={"/admin/matches/organized"}>
+                        <li
+                          className="px-4 py-2 text-gray-300 hover:bg-green-700 hover:text-white cursor-pointer"
+                          onClick={() => handleOrganizedOptionClick('Organized')}
+                        >
+                          Organized
+                        </li>
+                      </Link>
+                      <Link href={"/admin/matches/completed"}>
+                        <li
+                          className="px-4 py-2 text-gray-300 hover:bg-green-700 hover:text-white cursor-pointer"
+                          onClick={() => handleOrganizedOptionClick('Completed')}
+                        >
+                          Completed
+                        </li>
+                      </Link>
+                    </ul>
+                  </div>
+                )}
+              </div>
+              {/* Sport Type Selector */}
+              <button className="flex items-center justify-between gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md">
+                <span className="text-[#14AE5C] text-nowrap text-lg">Sport Type</span>
+                <span>{dropdown}</span>
+              </button>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 px-8">
             {/* Search Input */}
-            <div className="flex items-center w-96 border rounded-md">
+            <div className="flex items-center w-full border rounded-md">
               <input
                 type="text"
                 placeholder="Search Ex: (Match ID, Type, Date, Location)"
@@ -78,7 +119,7 @@ const User = () => {
             </div>
 
             {/* Organized Dropdown */}
-            <div className="relative">
+            <div className="relative hidden xl:flex ">
               <button
                 className="flex items-center justify-between gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md"
                 onClick={toggleOrganizedDropdown}
@@ -109,17 +150,17 @@ const User = () => {
                 </div>
               )}
             </div>
-
             {/* Sport Type Selector */}
-            <button className="flex items-center justify-between gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md">
+            <button className="hidden xl:flex items-center justify-between gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md">
               <span className="text-[#14AE5C] text-nowrap text-lg">Sport Type</span>
               <span>{dropdown}</span>
             </button>
+
           </div>
         </div>
 
         {/* Table */}
-        <div className="w-full mt-1">
+        <div className="w-full mt-1  overflow-x-auto">
           <table className="w-full text-sm text-left text-white">
             <thead className="bg-[#14AE5C] text-white">
               <tr>
@@ -143,8 +184,8 @@ const User = () => {
                   <td className="px-6 py-4">
                     <span
                       className={`px-8 py-2 rounded-full ${user.status === "Open"
-                          ? "bg-[#44DD261A] text-[#44DD26]"
-                          : "bg-[#F31E0A1A] text-[#F31E0A]"
+                        ? "bg-[#44DD261A] text-[#44DD26]"
+                        : "bg-[#F31E0A1A] text-[#F31E0A]"
                         }`}
                     >
                       {user.status}

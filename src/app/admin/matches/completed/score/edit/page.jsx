@@ -164,7 +164,7 @@ const MatchDetails = () => {
                             </div>
                             <div className="mb-6">
                                 <label className="text-white text-lg block mb-2">Select Winner</label>
-                                <div className="w-full lg:w-1/2 flex items-center rounded-3xl bg-[#54545457]">
+                                <div className="w-full lg:w-1/2 flex items-center justify-between rounded-3xl bg-[#54545457]">
                                     <input
                                         type="text"
                                         className="w-full lg:w-1/2 rounded-l-3xl bg-transparent text-gray-300 px-4 py-5 outline-none"
@@ -249,7 +249,7 @@ const MatchDetails = () => {
                                 <div>
                                     <input
                                         type="checkbox"
-                                        className="w-6 h-6 appearance-none checked:bg-[#9AE2A8]"
+                                        className="w-6 h-6 checked:bg-[#9AE2A8]"
                                     />
                                 </div>
                                 <div className="flex items-center gap-3">
