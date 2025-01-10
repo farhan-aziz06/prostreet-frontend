@@ -49,17 +49,17 @@ const MobileSidebar = () => {
                         </SheetTitle>
                     </SheetHeader>
                     <div className="flex flex-col gap-6 px-4 py-6">
-                        {/* Search Bar */}
+                        {/* Search Bar
                         <div className="flex items-center border rounded-2xl bg-gray-700">
                             <input
                                 type="text"
                                 placeholder="Search"
                                 className="flex-1 p-3 border-none outline-none bg-transparent text-gray-300 placeholder-gray-500"
                             />
-                        </div>
+                        </div> */}
 
                         {/* Navigation Links */}
-                        <div>
+                        <div className='mb-7'>
                             {links.map((link) => (
                                 <Link
                                     key={link.href}

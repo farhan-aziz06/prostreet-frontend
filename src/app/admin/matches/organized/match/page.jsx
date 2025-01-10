@@ -35,7 +35,7 @@ const MatchDetails = () => {
                     </div>
                     <div className="grid xl:grid-cols-2 xl:gap-96 md:mt-4 text-black px-5 xl:px-16">
                         <div className='w-full'>
-                            <div className="flex flex-col xl:flex-row md:items-start xl:gap-20">
+                            <div className="flex flex-col xl:flex-row md:items-start xl:gap-14">
                                 <div>
                                     <div className="flex items-center gap-2 pb-14">
                                         <span className="text-lg">{calenderIcon}</span>

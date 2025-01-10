@@ -24,14 +24,14 @@ const MatchDetails = () => {
         newRatings[playerIndex] = starIndex + 1;
         setPlayerRatings(newRatings);
     };
-    
+
 
     const handleRating = (playerIndex, index) => {
         const updatedRatings = [...ratings];
         updatedRatings[playerIndex] = index + 1;
         setRatings(updatedRatings);
     }
-    
+
 
     return (
         <div className="bg-[#1A1D26] flex items-center justify-center p-6 min-h-screen">
@@ -43,43 +43,46 @@ const MatchDetails = () => {
                         <p className="text-sm text-black mt-1 xl:text-center px-5 py-2">Here are some details of the match selected</p>
                         <span className="absolute top-6 right-6 md:px-10 text-[#244AAD] font-semibold cursor-pointer">Game Close</span>
                     </div>
-
-                    <div className="grid md:grid-cols-2 gap-4 mt-4 text-black px-3 md:px-16">
-                        <div>
-                            <div className='flex flex-col md:flex-row items-start md:gap-20'>
+                    <div className="grid xl:grid-cols-2 xl:gap-96 md:mt-4 text-black px-5 xl:px-16">
+                        <div className='w-full'>
+                            <div className='flex flex-col xl:flex-row md:items-start xl:gap-14'>
                                 <div>
                                     <div className="flex items-center gap-2 pb-14">
                                         <span className="text-lg">{calenderIcon}</span>
-                                        <p className="text-xl text-black font-semibold">Friday, September 1st · 7:00PM</p>
+                                        <p className="text-xl text-black font-semibold md:text-nowrap">Friday, September 1st · 7:00PM</p>
                                     </div>
                                     <div className="flex items-center gap-2 pb-14">
                                         <span className="text-lg">{locIcon}</span>
-                                        <p className="text-xl text-black font-semibold">Longshots Bar & Grill</p>
+                                        <p className="text-xl text-black font-semibold md:text-nowrap">Longshots Bar & Grill</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="flex items-center gap-2 pb-14">
                                         <span className="text-lg">{joinedIcon}</span>
-                                        <p className="text-xl text-black font-semibold">20 Joined</p>
+                                        <p className="text-xl text-black font-semibold md:text-nowrap">20 Joined</p>
                                     </div>
                                     <div className="flex items-center gap-2 pb-14">
                                         <span className="text-lg">{slotIcon}</span>
-                                        <p className="text-xl text-black font-semibold">2 Slots Left</p>
+                                        <p className="text-xl text-black font-semibold md:text-nowrap">2 Slots Left</p>
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <p className="text-xl text-black pb-10">
+                            <div className='w-full'>
+                                <p className="text-xl text-black pb-10 w-full">
                                     <span className="font-semibold">Description:</span> description here, description here, description here
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <div className="flex items-center gap-2 pb-4">
-                                <p className="text-xl text-black font-semibold">Preferred Opponent: any</p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <p className="text-xl text-black font-semibold">Preferred Age: any</p>
+                            <div className="mb-10 md:mb-0">
+                                <div className="flex items-center gap-1 pb-4">
+                                    <p className="text-xl text-black font-semibold text-nowrap">Preferred Opponent: </p>
+                                    <p className='text-xl text-black'>any</p>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                    <p className="text-xl text-black font-semibold text-nowrap">Preferred Age: </p>
+                                    <p className='text-xl text-black'>any</p>
+                                </div>
                             </div>
                             <div className="py-5 flex">
                                 <div className="">
@@ -115,7 +118,6 @@ const MatchDetails = () => {
                         </span>
                     </div>
                 </div>
-
                 {/* Conditional Profile Rating and Match Result Section */}
                 {selectedTab === "Players" && (
                     <>
@@ -230,7 +232,7 @@ const MatchDetails = () => {
                             </div>
                             <button
                                 className="bg-[#787F99] rounded-3xl mt-6 text-white px-8 py-3 md:py-4 text-md font-medium"
-                                // onClick={handleSendComment}
+                            // onClick={handleSendComment}
                             >
                                 Send
                             </button>
