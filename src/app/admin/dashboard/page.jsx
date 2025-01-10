@@ -262,7 +262,7 @@ const Dashboard = () => {
             </div>
 
             {/* Matches Section */}
-            <div className="grid xl:grid-cols-[3fr_3fr_3fr] xl:gap-6 px-5 md:px-10">
+            <div className="grid 2xl:grid-cols-[3fr_3fr_3fr] xl:gap-6 px-5 md:px-10">
                 <div className=''>
                     {['Basketball', 'Soccer', 'Tennis', 'Golf'].map((sport, index) => (
                         <div
