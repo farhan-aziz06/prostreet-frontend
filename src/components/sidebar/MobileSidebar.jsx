@@ -24,7 +24,7 @@ const MobileSidebar = () => {
         { href: '/admin/feedback', label: 'Feedback', icon: feedbackIcon },
         { href: '/admin/notifications', label: 'Notifications', icon: notification },
         { href: '/admin/documentations', label: 'Documentation', icon: documentataion },
-        { href: '#', label: 'Log Out', icon: dashboardIcons },
+        { href: '/login', label: 'Log Out', icon: dashboardIcons },
     ];
 
     return (
