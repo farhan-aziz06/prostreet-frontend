@@ -48,27 +48,27 @@ const Feedback = () => {
 
   return (
     <div className="text-white p-6 mt-10 border rounded-xl border-[#8B909F] bg-[#30333D] ">
-      <h2 className="text-2xl font-bold mb-6 px-5 py-5">Feedback</h2>
+      <h2 className="text-2xl font-bold md:mb-6 px-5 py-5">Feedback</h2>
 
       {/* Feedback List */}
-      <div className="space-y-6 px-5 pb-7">
+      <div className="space-y-6 md:px-5 pb-7">
         {feedbacks.map((feedback, index) => (
           <div
             key={index}
             className="bg-[#424756] p-6 rounded-lg flex flex-col"
           >
-            <div className="flex flex-col px-3 md:flex-row justify-between items-center">
+            <div className="lg:flex flex-col px-3 md:flex-row justify-between items-center">
               <div>
                 <p className="text-lg font-bold mb-2">{feedback.user}</p>
                 <p className="text-lg mb-2">{feedback.message}</p>
                 {feedback.response && (
-                  <div className="text-sm mb-2">
-                    <p className="text-lg "><span className='font-bold pr-4'>Response: </span> {feedback.response}</p>
+                  <div className="text-sm w-1/2">
+                    <p className="lg:text-lg max-w-1/2 break-words"><span className='font-bold pr-4'>Response: </span> {feedback.response}</p>
                   </div>
                 )}
               </div>
               <button
-                className="bg-[#14AE5C] text-white px-20 py-4 rounded-xl"
+                className="bg-[#14AE5C] text-white px-10 lg:px-20 py-4 rounded-xl"
                 onClick={() => openModal(feedback)}
               >
                 Respond
@@ -112,7 +112,7 @@ const Feedback = () => {
             </div>
             <div className="flex justify-center">
               <button
-                className="bg-[#14AE5C] text-white px-20 py-4 rounded-xl"
+                className="bg-[#14AE5C] text-white px-10 lg:px-20 py-4 rounded-xl"
                 onClick={handleResponseSubmit}
               >
                 Respond

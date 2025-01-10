@@ -44,12 +44,12 @@ const Docs = () => {
           <h2 className="text-lg font-bold">Privacy Policy</h2>
         </div>
         {activeSection === 'privacyPolicy' && (
-          <div className="p-6 bg-[#424756] md:flex items-center gap-4">
+          <div className="p-6 bg-[#424756] lg:flex items-center gap-4">
             {selectedImage ? (
               <Image
                 src={selectedImage}
                 alt="Privacy Policy"
-                className="rounded-lg"
+                className="rounded-lg w-full lg:w-auto"
                 width={300}
                 height={150}
               />

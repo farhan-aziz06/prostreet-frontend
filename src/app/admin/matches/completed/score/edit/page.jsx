@@ -24,22 +24,24 @@ const MatchDetails = () => {
         newRatings[playerIndex] = starIndex + 1;
         setPlayerRatings(newRatings);
     };
+    
 
     const handleRating = (playerIndex, index) => {
         const updatedRatings = [...ratings];
         updatedRatings[playerIndex] = index + 1;
         setRatings(updatedRatings);
     }
+    
 
     return (
         <div className="bg-[#1A1D26] flex items-center justify-center p-6 min-h-screen">
             <div className="w-full bg-[#30333D] border border-[#8B909F] rounded-lg shadow-lg">
                 {/* Match Details Section */}
                 <div className="bg-[#B6F36A] m-2 md:m-8 py-6 rounded-lg relative">
-                    <div className="md:pb-20">
-                        <h2 className="text-xl font-semibold text-black md:text-center px-3">Match Details</h2>
-                        <p className="text-sm text-black mt-1 md:text-center px-3 py-2">Here are some details of the match selected</p>
-                        <span className="absolute top-7 right-6 px-10 text-[#244AAD] font-semibold cursor-pointer">Game Close</span>
+                    <div className="pb-5 xl:pb-20 flex flex-col">
+                        <h2 className="text-xl font-semibold text-black xl:text-center px-5">Match Details</h2>
+                        <p className="text-sm text-black mt-1 xl:text-center px-5 py-2">Here are some details of the match selected</p>
+                        <span className="absolute top-6 right-6 md:px-10 text-[#244AAD] font-semibold cursor-pointer">Game Close</span>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4 mt-4 text-black px-3 md:px-16">
@@ -117,7 +119,7 @@ const MatchDetails = () => {
                 {/* Conditional Profile Rating and Match Result Section */}
                 {selectedTab === "Players" && (
                     <>
-                        <div className="p-6 rounded-b-lg md:px-96 flex flex-col md:flex-row justify-start md:justify-center md:ml-0 gap-16">
+                        <div className="p-6 rounded-b-lg xl:px-96 flex flex-col md:flex-row justify-start md:justify-center md:ml-0 gap-8 lg:gap-16">
                             {[0, 1, 2].map((playerIndex) => (
                                 <div
                                     key={playerIndex}
@@ -156,16 +158,16 @@ const MatchDetails = () => {
                                 <label className="text-white text-lg block mb-2">Match Score</label>
                                 <input
                                     type="text"
-                                    className="w-full md:w-1/2 rounded-3xl bg-[#54545457] text-gray-300 px-4 py-5 outline-none"
+                                    className="w-full lg:w-1/2 rounded-3xl bg-[#54545457] text-gray-300 px-4 py-5 outline-none"
                                     placeholder="20"
                                 />
                             </div>
                             <div className="mb-6">
                                 <label className="text-white text-lg block mb-2">Select Winner</label>
-                                <div className="md:w-1/2 flex items-center rounded-3xl bg-[#54545457]">
+                                <div className="w-full lg:w-1/2 flex items-center rounded-3xl bg-[#54545457]">
                                     <input
                                         type="text"
-                                        className="w-full rounded-l-3xl bg-transparent text-gray-300 px-4 py-5 outline-none"
+                                        className="w-full lg:w-1/2 rounded-l-3xl bg-transparent text-gray-300 px-4 py-5 outline-none"
                                         placeholder="Select any"
                                     />
                                     <button
@@ -191,18 +193,19 @@ const MatchDetails = () => {
                             <span className="text-xl font-bold pr-1">48</span> Comments
                         </p>
                         {/* Comment */}
-                        <div className="mt-6 md:w-[70%]">
+                        <div className="mt-6 lg:w-[70%]">
                             <div className="flex items-start gap-2 md:gap-4">
                                 {/* Responsive image container */}
-                                <div className="w-24 md:w-10 md:h-10 bg-gray-600 rounded-full overflow-hidden">
+                                <div className="w-24 bg-gray-600 rounded-full overflow-hidden">
                                     <Image
-                                        src={PlayerProfile} // Replace with actual image path
+                                        src={PlayerProfile}
                                         alt="Avatar"
                                         className="w-full h-full"
                                     />
                                 </div>
                                 <div>
                                     <p className="text-white text-lg font-semibold">Irfan</p>
+                                    <p className="text-[#D7DAE2] text-xs text-nowrap ml-auto xl:hidden flex">1 Month ago</p>
                                     <p className="text-white text-xs md:text-sm mt-1">
                                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                                     </p>
@@ -211,20 +214,23 @@ const MatchDetails = () => {
                                         <span className="font-semibold">&gt;</span>
                                     </div>
                                 </div>
-                                <p className="text-[#D7DAE2] text-xs text-nowrap ml-auto">1 Month ago</p>
+                                <p className="text-[#D7DAE2] text-xs text-nowrap ml-auto hidden xl:flex">1 Month ago</p>
                             </div>
                         </div>
                         {/* Write Comment */}
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-2 md:gap-5">
                             <div className="flex items-center border rounded-3xl mt-6 w-[64%]">
                                 <input
                                     type="text"
                                     className="flex-grow bg-transparent text-gray-300 px-3 md:px-8 py-3 md:py-4 rounded-lg outline-none text-sm placeholder-gray-500"
                                     placeholder="Write comment"
+                                    // value={comment}
+                                    onChange={(e) => setComment(e.target.value)}
                                 />
                             </div>
                             <button
-                                className="bg-[#787F99] rounded-3xl mt-6 text-white px-3 md:px-8 py-3 md:py-4 text-md font-medium"
+                                className="bg-[#787F99] rounded-3xl mt-6 text-white px-8 py-3 md:py-4 text-md font-medium"
+                                // onClick={handleSendComment}
                             >
                                 Send
                             </button>

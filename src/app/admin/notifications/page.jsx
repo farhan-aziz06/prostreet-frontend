@@ -39,18 +39,18 @@ const Notifications=()=>{
         {notifications.map((notification, index) => (
           <div
             key={index}
-            className="flex justify-between items-start bg-custom-cardBg p-4 rounded-lg"
+            className="lg:flex justify-between items-start bg-custom-cardBg p-4 rounded-lg"
           >
             <div className="flex item-start  space-x-7">
               <span className="mt-2 md:0">{ovalIcon}</span>
               <div>
                 <p className="font-bold pb-4 text-xl">{notification.agent}</p>
-                <p className="text-lg font-medium text-custom-textColor md:w-[60%]">
+                <p className="text-lg font-medium text-custom-textColor xl:w-[60%]">
                   Message: {notification.message}
                 </p>
               </div>
             </div>
-            <div className="bg-green-700/20 text-nowrap px-6 py-1 mx-6 rounded-full text-lg font-semibold">
+            <div className="bg-green-700/20 text-nowrap px-6 py-1 mx-12 rounded-full text-lg font-semibold w-28">
               {notification.time}
             </div>
           </div>

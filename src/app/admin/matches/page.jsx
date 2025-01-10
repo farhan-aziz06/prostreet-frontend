@@ -60,17 +60,17 @@ const User = () => {
       {/* Topbar */}
       <Topbar icon={blockIcons} title="Matches List" />
 
-      <div className="border mt-10 rounded-lg bg-[#30333D]">
+      <div className="border border-[#8B909F] mt-10 rounded-lg bg-[#30333D]  overflow-x-auto ">
         {/* Search and Filters */}
-        <div className="px-4 md:px-10 py-4 md:flex items-center justify-between ">
+        <div className="px-4 md:px-10 py-4 flex items-center justify-between gap-20">
           <h2 className="text-lg font-medium mb-4 text-white">Organized</h2>
-          <div className="flex items-center gap-14 md:gap-4">
+          <div className="flex items-center gap-4">
             {/* Search Input */}
-            <div className="hidden md:flex items-center md:w-96 border rounded-md">
+            <div className="flex items-center w-96 border rounded-md">
               <input
                 type="text"
-                placeholder="Search Ex: (User ID, Name, Email)"
-                className="flex w-full px-10 py-2 text-gray-300 text-lg bg-transparent outline-none"
+                placeholder="Search Ex: (Match ID, Type, Date, Location)"
+                className="flex w-full px-3 xl:px-10 py-2 text-gray-300 text-lg bg-transparent outline-none"
               />
               <button className="p-3 md:p-4 text-gray-300 bg-green-600 hover:text-white rounded-r-md border-l">
                 {searchIcon}
@@ -80,7 +80,7 @@ const User = () => {
             {/* Organized Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center justify-betwee gap-2 md:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md"
+                className="flex items-center justify-betwee gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md"
                 onClick={toggleOrganizedDropdown}
               >
                 <span className="text-[#14AE5C] text-lg">Organized</span>
@@ -111,7 +111,7 @@ const User = () => {
             </div>
 
             {/* Sport Type Selector */}
-            <button className="flex items-center justify-betwee gap-2 md:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md">
+            <button className="flex items-center justify-betwee gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md">
               <span className="text-[#14AE5C] text-nowrap text-lg">Sport Type</span>
               <span>{dropdown}</span>
             </button>
@@ -119,7 +119,7 @@ const User = () => {
         </div>
 
         {/* Table */}
-        <div className="overflow-x-auto mt-1">
+        <div className="w-full mt-1">
           <table className="w-full text-sm text-left text-white">
             <thead className="bg-[#14AE5C] text-white">
               <tr>

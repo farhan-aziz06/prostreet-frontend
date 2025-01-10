@@ -159,18 +159,20 @@ const ProfileTable = () => {
     return (
         <div className="pt-10 text-white rounded-lg">
             {/* Profile Section */}
-            <div className="md:flex items-center gap-6 px-10 pt-12 pb-5 bg-[#14AE5C33] border border-[#8B909F] rounded-lg">
-                <Image
-                    src={Profile}
-                    alt="Profile"
-                    className="w-32 rounded-full border-2 border-[#8B909F]"
-                />
-                <div>
-                    <h2 className="text-lg font-semibold py-1">Kevin, K</h2>
-                    <p className="text-gray-300 py-1">kevin@gmail.com</p>
-                    <p className="text-gray-300 py-1">Male</p>
+            <div className="lg:flex items-center gap-6 px-10 pt-12 pb-5 bg-[#14AE5C33] border border-[#8B909F] rounded-lg">
+                <div className="flex items-center  gap-6">
+                    <Image
+                        src={Profile}
+                        alt="Profile"
+                        className="w-32 rounded-full border-2 border-[#8B909F]"
+                    />
+                    <div>
+                        <h2 className="text-lg font-semibold py-1">Kevin, K</h2>
+                        <p className="text-gray-300 py-1">kevin@gmail.com</p>
+                        <p className="text-gray-300 py-1">Male</p>
+                    </div>
                 </div>
-                <div className="ml-auto text-right mt-5">
+                <div className="lg:ml-auto text-right ml-5 mt-5">
                     <div className="flex items-center gap-8">
                         <div className="ml-3">
                             <p className="text-xl font-semibold pb-2">142</p>
@@ -281,7 +283,7 @@ const ProfileTable = () => {
                                     </span>
                                 </td>
                                 <td className="px-1 py-10 md:py-5 text-center flex ">
-                                    <div className="ml-7">
+                                    <div className="ml-4 2xl:ml-14">
                                         <button className="p-1 rounded text-gray-900">{eyeIcon}</button>
                                         <button
                                             className="p-1 rounded text-gray-900"

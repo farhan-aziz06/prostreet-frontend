@@ -9,7 +9,7 @@ const Topbar = ({ icon, title, buttonIcon, button, href }) => {
                 <div className="flex items-center gap-5">
                     {icon && <span>{icon}</span>}
                     {title && (
-                        <h1 className="text-2xl font-semibold text-center">
+                        <h1 className="text-xl md:text-2xl font-semibold text-center">
                             {title}
                         </h1>
                     )}

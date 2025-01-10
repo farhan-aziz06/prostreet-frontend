@@ -71,7 +71,7 @@ const Feedback = () => {
                         key={index}
                         className="bg-[#424756] p-6 rounded-lg flex flex-col"
                     >
-                        <div className="flex flex-col px-3 md:flex-row justify-between items-center">
+                        <div className="lg:flex flex-col px-3 md:flex-row justify-between items-center">
                             <div>
                                 <p className="text-lg font-bold mb-2">{feedback.user}</p>
                                 <p className="text-lg mb-2">{feedback.message}</p>
@@ -82,7 +82,7 @@ const Feedback = () => {
                                 )}
                             </div>
                             <button
-                                className="bg-[#14AE5C] text-white px-20 py-4 rounded-xl"
+                                className="bg-[#14AE5C] text-white px-10 lg:px-20 py-4 rounded-xl"
                                 onClick={() => openModal(feedback)}
                             >
                                 Respond
@@ -139,6 +139,7 @@ const Feedback = () => {
         </div>
     );
 };
+
 const Dashboard = () => {
     const [isOpen, setIsOpen] = useState(false);
     const barData = useMemo(() => ({
@@ -194,7 +195,6 @@ const Dashboard = () => {
         },
     };
 
-
     const doughnutData = useMemo(() => ({
         labels: ['Soccer Matches', 'Basketball Matches', 'Tennis Matches', 'Golf'],
         datasets: [
@@ -220,25 +220,23 @@ const Dashboard = () => {
         },
         cutout: '80%', // Decrease width of filled part
     };
-
-
     return (
         <div className="min-h-screen bg-[#1A1D26] text-white">
-            {/* Header */}
-            <div className="md:flex justify-between items-center mb-6 px-5 md:px-10">
+            {/* Responsive Header */}
+            <div className="flex justify-between items-center mb-6 px-10 md:px-10 gap-4 lg:gap-0">
                 <div className="flex gap-5 items-start">
-                    <span className='hidden md:flex  mt-2 '>{byeIcon}</span>
+                    <span className='hidden lg:flex mt-2 '>{byeIcon}</span>
                     <div>
                         <h1 className="text-2xl font-bold">
                             Welcome <span className="text-green-400">JHON</span>,
                         </h1>
-                        <p className="text-gray-400">Hello, here you can manage your business by zone</p>
+                        <p className=" hidden md:flex text-gray-400 text-xs lg:text-sm">Hello, here you can manage your business by zone</p>
                     </div>
                 </div>
-                <div className="relative hidden md:flex">
+                <div className="relative">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="bg-transparent border border-[#DEDEDE99] text-white rounded-xl px-5 py-3 outline-none flex items-center justify-between gap-24"
+                        className="bg-transparent border border-[#DEDEDE99] text-white rounded-xl px-2 md:px-5 py-3 outline-none flex items-center justify-between gap-5 lg:gap-24 text-nowrap"
                     >
                         <span>Select Date</span>
                         <svg
@@ -264,28 +262,28 @@ const Dashboard = () => {
             </div>
 
             {/* Matches Section */}
-            <div className="md:flex items-start justify-start gap-2 md:gap-5 px-5 md:px-10">
-                <div>
+            <div className="grid xl:grid-cols-[3fr_3fr_3fr] xl:gap-6 px-5 md:px-10">
+                <div className=''>
                     {['Basketball', 'Soccer', 'Tennis', 'Golf'].map((sport, index) => (
                         <div
                             key={index}
-                            className={`flex items-center justify-between gap-4 rounded p-4 md:w-[460px] py-4 my-3 bg-[#${['FF8E4F', 'B6F36A', '84CDEE', 'B891EB'][index]
+                            className={`flex items-center justify-between lg:gap-5 rounded px-4 py-4 my-2   bg-[#${['FF8E4F', 'B6F36A', '84CDEE', 'B891EB'][index]
                                 }]`}
                         >
-                            <div className="flex items-center justify-start gap-5 pl-5">
-                                <div className='rounded-3xl bg-[#01010126] p-3'>
-                                    <span>{basketballIcon}</span>
+                            <div className="flex items-center justify-start px-5 w-full">
+                                <div className='flex justify-between gap-4 md:gap-8 items-center'>
+                                    <span className='rounded-3xl bg-[#01010126] p-3'>{basketballIcon}</span>
+                                    <p className="text-black text-lg font-medium ">{sport} Match</p>
                                 </div>
-                                <p className="text-black text-sm">{sport} Match</p>
+
                             </div>
-                            <h2 className="text-2xl text-black font-bold pr-5">24</h2>
+                            <h2 className="text-2xl text-black font-bold px-10">24</h2>
                         </div>
                     ))}
                 </div>
-
                 {/* User Profiles */}
                 {[...Array(2)].map((_, idx) => (
-                    <div key={idx} className="border border-[#767E97] rounded-lg px-5 py-9 md:w-[35%] mt-2 bg-[#30333D]">
+                    <div key={idx} className="flex flex-col border justify-between border-[#767E97] rounded-lg px-5 py-6 mt-2 bg-[#30333D]">
                         <div className="flex items-start justify-between">
                             <div>
                                 <Image
@@ -304,14 +302,16 @@ const Dashboard = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className="border-t border-[#DDDDDD66] mx-5 my-3"></div>
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <h1 className="font-semibold text-lg">Female</h1>
-                                <p className="text-sm">30 yrs old</p>
-                            </div>
-                            <div className="font-semibold text-xl text-[#FCCE6E]">
-                                <p>Newyork Street</p>
+                        <div className='flex flex-col'>
+                            <div className="border-t border-[#DDDDDD66] mx-5 my-3"></div>
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <h1 className="font-semibold text-lg">Female</h1>
+                                    <p className="text-sm">30 yrs old</p>
+                                </div>
+                                <div className="font-semibold text-xl text-[#FCCE6E]">
+                                    <p>Newyork Street</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -319,8 +319,8 @@ const Dashboard = () => {
             </div>
 
             {/* Chart Section */}
-            <div className='md:flex justify-start gap-4 px-5 md:px-10 mt-3'>
-                <div className="bg-[#30333D] p-3 md:p-6 rounded-lg border border-[#767E97] w-full md:w-[60%] mb-5">
+            <div className='xl:flex justify-start gap-4 px-5 md:px-10 mt-6'>
+                <div className="bg-[#30333D] p-3 md:p-6 rounded-lg border border-[#767E97] w-full xl:w-[60%] mb-5">
                     <h2 className="text-white text-lg font-bold mb-4">Monthly Registered Users</h2>
                     <div className="text-white text-4xl font-semibold mb-4">24000</div>
                     {/* Scrollable container for horizontal scroll */}
@@ -332,7 +332,7 @@ const Dashboard = () => {
                 </div>
 
 
-                <div className="bg-[#30333D] p-6 rounded-lg border border-[#767E97] md:w-[40%] md:flex items-start justify-between mb-5">
+                <div className="bg-[#30333D] p-6 rounded-lg border border-[#767E97] xl:w-[40%] 2xl:flex items-start justify-between mb-5">
                     <div>
                         <h2 className="text-white text-lg font-bold mb-20">Monthly Matches</h2>
                         <div className="relative" style={{ height: '200px', width: '200px', margin: '0 auto' }}>
@@ -347,7 +347,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     {/* Custom Legend */}
-                    <div className="mt-5 md:mt-32 space-y-2">
+                    <div className="mt-5 2xl:mt-32 space-y-2">
                         <div className="flex items-center gap-2">
                             <span className="w-3 h-3 rounded-full bg-[#B6F36A]"></span>
                             <p className="text-gray-400">Soccer Matches</p>

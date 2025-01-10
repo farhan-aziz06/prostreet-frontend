@@ -43,11 +43,11 @@ const BasicInformation = () => {
 
             {/* Full Name */}
             <div className="px-4">
-                <div className="mb-6 flex justify-between">
+                <div className="mb-6 lg:flex justify-between">
                     <label className="block text-lg font-medium mb-2">
                         Full Name
                     </label>
-                    <div className="grid grid-cols-2 gap-4 w-[70%]">
+                    <div className="grid lg:grid-cols-2 gap-4 lg:w-[70%]">
                         <input
                             type="text"
                             name="firstName"
@@ -68,7 +68,7 @@ const BasicInformation = () => {
                 </div>
 
                 {/* Phone */}
-                <div className="mb-6 flex justify-between">
+                <div className="mb-6 lg:flex justify-between">
                     <label className="block text-lg font-medium mb-2">
                         Phone <span className="px-1">(Compulsory)</span>
                     </label>
@@ -77,13 +77,13 @@ const BasicInformation = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="bg-[#30333D] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 w-[70%] outline-none"
+                        className="bg-[#30333D] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 w-[100%] lg:w-[70%] outline-none"
                         placeholder="+92 325 3545 34534"
                     />
                 </div>
 
                 {/* Email */}
-                <div className="mb-6 flex justify-between">
+                <div className="mb-6 lg:flex justify-between">
                     <label className="block text-lg font-medium mb-2">
                         Email <span className="px-1">(Compulsory)</span>
                     </label>
@@ -92,7 +92,7 @@ const BasicInformation = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="bg-[#30333D] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 w-[70%] outline-none"
+                        className="bg-[#30333D] border border-[#8B909F] text-gray-300 rounded-lg px-4 py-2 w-[100%] lg:w-[70%] outline-none"
                         placeholder="loremipsum@gmail.com"
                     />
                 </div>
@@ -114,9 +114,9 @@ const BasicInformation = () => {
 
 const Profile = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-10 gap-8 mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 mt-10">
             {/* Div 1 (30% width) */}
-            <div className="col-span-7 md:col-span-3 md:h-[24%] border bg-[#30333D] border-[#8B909F] rounded-lg">
+            <div className="col-span-7 lg:col-span-3 lg:h-[24%] border bg-[#30333D] border-[#8B909F] rounded-lg">
                 <div>
                     <div className="flex items-center justify-start gap-5 p-4">
                         <span>{userInfoIcon}</span>
