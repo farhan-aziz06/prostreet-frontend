@@ -214,10 +214,11 @@ const User = () => {
           </table>
         </div>
       </div>
+
       {showDeleteModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
-          <div className="bg-[#222530] p-6 md:py-16 rounded-lg shadow-lg md:w-[40%] m-5 text-center border border-[#4F4E4E]">
-            <h2 className="text-lg font-semibold mb-4">Do you really want to delete this item?</h2>
+          <div className="bg-[#222530] p-6 md:py-16 rounded-lg shadow-lg md:w-[60%] lg:w-[40%] m-5 text-center border border-[#4F4E4E]">
+            <h2 className="text-lg font-semibold mb-4 text-white">Do you really want to delete this item?</h2>
             <p className="text-sm font-medium mb-2 text-[#FFFFFF99]">User deleted once csn not be restored again. Are you sure you want to delete this?</p>
             <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
               <button
