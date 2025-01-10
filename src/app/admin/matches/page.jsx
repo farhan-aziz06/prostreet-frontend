@@ -69,7 +69,7 @@ const User = () => {
               {/* Organized Dropdown */}
               <div className="relative">
                 <button
-                  className="flex items-center justify-between gap-3 xl:gap-10 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md"
+                  className="flex items-center justify-between gap-2 xl:gap-6 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md"
                   onClick={toggleOrganizedDropdown}
                 >
                   <span className="text-[#14AE5C] text-lg">Organized</span>
@@ -99,7 +99,7 @@ const User = () => {
                 )}
               </div>
               {/* Sport Type Selector */}
-              <button className="flex items-center justify-between gap-3 xl:gap-10 px-2 md:px-10 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md">
+              <button className="flex items-center justify-between gap-2 xl:gap-6 px-2 md:px-7 py-2 md:py-3 text-sm font-medium bg-transparent border border-green-700 rounded-md">
                 <span className="text-[#14AE5C] text-nowrap text-lg">Sport Type</span>
                 <span>{dropdown}</span>
               </button>
