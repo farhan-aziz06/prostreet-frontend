@@ -57,7 +57,7 @@ const EditUserModal = ({ user, onClose, onSave }) => {
                     <div className="flex flex-col md:flex-row items-center gap-4">
                         <label className="text-lg font-semibold text-white w-full md:w-1/4 text-nowrap">Registration Date</label>
                         <input
-                            type="text"
+                            type="date"
                             name="registrationDate"
                             value={formData.registrationDate || ""}
                             onChange={handleChange}

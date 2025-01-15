@@ -97,9 +97,8 @@ const BasicInformation = () => {
                     />
                 </div>
             </div>
-
             {/* Update Button */}
-            <div className="flex justify-end">
+            <div className="flex justify-end pr-4">
                 <button
                     onClick={handleUpdate}
                     className="bg-[#14AE5C] text-white px-9 py-3 rounded-lg font-semibold"
@@ -116,19 +115,17 @@ const Profile = () => {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 mt-10">
             {/* Div 1 (30% width) */}
-            <div className="col-span-7 lg:col-span-3 lg:h-[24%] border bg-[#30333D] border-[#8B909F] rounded-lg">
-                <div>
-                    <div className="flex items-center justify-start gap-5 p-4">
-                        <span>{userInfoIcon}</span>
-                        <h2 className="text-[#14AE5C] text-lg font-semibold">Basic Information</h2>
-                    </div>
-                    <Link href={"/admin/dashboard/password"}>
-                        <div className="flex items-center justify-start gap-5 p-4">
-                            <span>{PasswordIcon}</span>
-                            <h2 className="text-white text-lg font-semibold">Password</h2>
-                        </div>
-                    </Link>
+            <div className="col-span-7 lg:col-span-3 lg:h-[24%] border bg-[#30333D] border-[#8B909F] rounded-lg py-8 px-5">
+                <div className="flex items-center justify-start gap-5 px-4 ">
+                    <span>{userInfoIcon}</span>
+                    <h2 className="text-[#14AE5C] text-lg font-semibold">Basic Information</h2>
                 </div>
+                <Link href={"/admin/dashboard/password"}>
+                    <div className="flex items-center justify-start gap-5 px-4 py-5">
+                        <span>{PasswordIcon}</span>
+                        <h2 className="text-white text-lg font-semibold">Password</h2>
+                    </div>
+                </Link>
             </div>
 
             {/* Div 2 (70% width) */}

@@ -86,7 +86,7 @@ export const LoginPage = () => {
         </form>
         <div className="my-5  md:w-[570px] md:border-t  md:relative">
           <p className="text-lg text-center text-nowrap md:absolute md:ml-32 md:px-4 -top-4 bg-custom-backgroundColor">
-            Don’t have an account? <a href="#" className="text-custom-lightGreen">Sign Up</a>
+            Don’t have an account? <Link href="/signup" className="text-custom-lightGreen">Sign Up</Link>
           </p>
         </div>
         <button className="mt-10 py-5 px-6 w-[100%] md:w-[570px] border border-gray-600 rounded-lg bg-custom-backgroundColor hover:bg-custom-buttonColor flex justify-center items-center">
